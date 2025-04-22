@@ -13,11 +13,11 @@
 13         to allow setting breakpoints, to provide hot reload, etc.
 14    -->
 15    <uses-permission android:name="android.permission.INTERNET" />
-15-->/home/buvan/Pictures/Finapp(Git)/Finapp/finapp/android/app/src/debug/AndroidManifest.xml:6:5-66
-15-->/home/buvan/Pictures/Finapp(Git)/Finapp/finapp/android/app/src/debug/AndroidManifest.xml:6:22-64
+15-->/home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/android/app/src/debug/AndroidManifest.xml:6:5-66
+15-->/home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/android/app/src/debug/AndroidManifest.xml:6:22-64
 16    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-16-->/home/buvan/Pictures/Finapp(Git)/Finapp/finapp/android/app/src/main/AndroidManifest.xml:2:5-79
-16-->/home/buvan/Pictures/Finapp(Git)/Finapp/finapp/android/app/src/main/AndroidManifest.xml:2:22-77
+16-->/home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/android/app/src/main/AndroidManifest.xml:2:5-79
+16-->/home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/android/app/src/main/AndroidManifest.xml:2:22-77
 17    <!--
 18 Required to query activities that can process text, see:
 19         https://developer.android.com/training/package-visibility and
@@ -26,16 +26,16 @@
 22         In particular, this is used by the Flutter engine in io.flutter.plugin.text.ProcessTextPlugin.
 23    -->
 24    <queries>
-24-->/home/buvan/Pictures/Finapp(Git)/Finapp/finapp/android/app/src/main/AndroidManifest.xml:40:5-45:15
+24-->/home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/android/app/src/main/AndroidManifest.xml:40:5-45:15
 25        <intent>
-25-->/home/buvan/Pictures/Finapp(Git)/Finapp/finapp/android/app/src/main/AndroidManifest.xml:41:9-44:18
+25-->/home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/android/app/src/main/AndroidManifest.xml:41:9-44:18
 26            <action android:name="android.intent.action.PROCESS_TEXT" />
-26-->/home/buvan/Pictures/Finapp(Git)/Finapp/finapp/android/app/src/main/AndroidManifest.xml:42:13-72
-26-->/home/buvan/Pictures/Finapp(Git)/Finapp/finapp/android/app/src/main/AndroidManifest.xml:42:21-70
+26-->/home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/android/app/src/main/AndroidManifest.xml:42:13-72
+26-->/home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/android/app/src/main/AndroidManifest.xml:42:21-70
 27
 28            <data android:mimeType="text/plain" />
-28-->/home/buvan/Pictures/Finapp(Git)/Finapp/finapp/android/app/src/main/AndroidManifest.xml:43:13-50
-28-->/home/buvan/Pictures/Finapp(Git)/Finapp/finapp/android/app/src/main/AndroidManifest.xml:43:19-48
+28-->/home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/android/app/src/main/AndroidManifest.xml:43:13-50
+28-->/home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/android/app/src/main/AndroidManifest.xml:43:19-48
 29        </intent>
 30    </queries>
 31
@@ -93,43 +93,43 @@
 77            android:value="2" />
 78
 79        <provider
-79-->[:image_picker_android] /home/buvan/Pictures/Finapp(Git)/Finapp/finapp/build/image_picker_android/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:9:9-17:20
+79-->[:image_picker_android] /home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/build/image_picker_android/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:9:9-17:20
 80            android:name="io.flutter.plugins.imagepicker.ImagePickerFileProvider"
-80-->[:image_picker_android] /home/buvan/Pictures/Finapp(Git)/Finapp/finapp/build/image_picker_android/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:10:13-82
+80-->[:image_picker_android] /home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/build/image_picker_android/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:10:13-82
 81            android:authorities="com.example.finapp.flutter.image_provider"
-81-->[:image_picker_android] /home/buvan/Pictures/Finapp(Git)/Finapp/finapp/build/image_picker_android/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:11:13-74
+81-->[:image_picker_android] /home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/build/image_picker_android/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:11:13-74
 82            android:exported="false"
-82-->[:image_picker_android] /home/buvan/Pictures/Finapp(Git)/Finapp/finapp/build/image_picker_android/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:12:13-37
+82-->[:image_picker_android] /home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/build/image_picker_android/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:12:13-37
 83            android:grantUriPermissions="true" >
-83-->[:image_picker_android] /home/buvan/Pictures/Finapp(Git)/Finapp/finapp/build/image_picker_android/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:13:13-47
+83-->[:image_picker_android] /home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/build/image_picker_android/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:13:13-47
 84            <meta-data
-84-->[:image_picker_android] /home/buvan/Pictures/Finapp(Git)/Finapp/finapp/build/image_picker_android/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:14:13-16:75
+84-->[:image_picker_android] /home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/build/image_picker_android/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:14:13-16:75
 85                android:name="android.support.FILE_PROVIDER_PATHS"
-85-->[:image_picker_android] /home/buvan/Pictures/Finapp(Git)/Finapp/finapp/build/image_picker_android/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:15:17-67
+85-->[:image_picker_android] /home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/build/image_picker_android/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:15:17-67
 86                android:resource="@xml/flutter_image_picker_file_paths" />
-86-->[:image_picker_android] /home/buvan/Pictures/Finapp(Git)/Finapp/finapp/build/image_picker_android/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:16:17-72
+86-->[:image_picker_android] /home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/build/image_picker_android/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:16:17-72
 87        </provider> <!-- Trigger Google Play services to install the backported photo picker module. -->
 88        <service
-88-->[:image_picker_android] /home/buvan/Pictures/Finapp(Git)/Finapp/finapp/build/image_picker_android/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:19:9-31:19
+88-->[:image_picker_android] /home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/build/image_picker_android/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:19:9-31:19
 89            android:name="com.google.android.gms.metadata.ModuleDependencies"
-89-->[:image_picker_android] /home/buvan/Pictures/Finapp(Git)/Finapp/finapp/build/image_picker_android/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:20:13-78
+89-->[:image_picker_android] /home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/build/image_picker_android/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:20:13-78
 90            android:enabled="false"
-90-->[:image_picker_android] /home/buvan/Pictures/Finapp(Git)/Finapp/finapp/build/image_picker_android/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:21:13-36
+90-->[:image_picker_android] /home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/build/image_picker_android/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:21:13-36
 91            android:exported="false" >
-91-->[:image_picker_android] /home/buvan/Pictures/Finapp(Git)/Finapp/finapp/build/image_picker_android/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:22:13-37
+91-->[:image_picker_android] /home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/build/image_picker_android/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:22:13-37
 92            <intent-filter>
-92-->[:image_picker_android] /home/buvan/Pictures/Finapp(Git)/Finapp/finapp/build/image_picker_android/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:24:13-26:29
+92-->[:image_picker_android] /home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/build/image_picker_android/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:24:13-26:29
 93                <action android:name="com.google.android.gms.metadata.MODULE_DEPENDENCIES" />
-93-->[:image_picker_android] /home/buvan/Pictures/Finapp(Git)/Finapp/finapp/build/image_picker_android/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:25:17-94
-93-->[:image_picker_android] /home/buvan/Pictures/Finapp(Git)/Finapp/finapp/build/image_picker_android/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:25:25-91
+93-->[:image_picker_android] /home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/build/image_picker_android/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:25:17-94
+93-->[:image_picker_android] /home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/build/image_picker_android/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:25:25-91
 94            </intent-filter>
 95
 96            <meta-data
-96-->[:image_picker_android] /home/buvan/Pictures/Finapp(Git)/Finapp/finapp/build/image_picker_android/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:28:13-30:36
+96-->[:image_picker_android] /home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/build/image_picker_android/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:28:13-30:36
 97                android:name="photopicker_activity:0:required"
-97-->[:image_picker_android] /home/buvan/Pictures/Finapp(Git)/Finapp/finapp/build/image_picker_android/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:29:17-63
+97-->[:image_picker_android] /home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/build/image_picker_android/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:29:17-63
 98                android:value="" />
-98-->[:image_picker_android] /home/buvan/Pictures/Finapp(Git)/Finapp/finapp/build/image_picker_android/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:30:17-33
+98-->[:image_picker_android] /home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/build/image_picker_android/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:30:17-33
 99        </service>
 100
 101        <uses-library

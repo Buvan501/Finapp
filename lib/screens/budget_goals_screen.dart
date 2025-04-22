@@ -1,3 +1,4 @@
+// budget_goals_screen.dart
 import 'package:flutter/material.dart';
 
 void main() => runApp(const MyApp());
@@ -314,13 +315,10 @@ class _BudgetGoalsScreenState extends State<BudgetGoalsScreen> {
               children: [
                 Text(
                   category,
-                  style: const TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.w600,
-                  ),
+                  style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
                 ),
                 Chip(
-                  label: Text('Budget: \$${budget.toStringAsFixed(2)}'),
+                  label: Text('Budget: ₹${budget.toStringAsFixed(2)}'),
                   backgroundColor: Colors.blue.withOpacity(0.1),
                 ),
               ],
@@ -339,11 +337,7 @@ class _BudgetGoalsScreenState extends State<BudgetGoalsScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 _buildAmountColumn('Spent', spent, Colors.red),
-                _buildAmountColumn(
-                  'Remaining',
-                  remaining,
-                  remaining >= 0 ? Colors.green : Colors.red,
-                ),
+                _buildAmountColumn('Remaining', remaining, remaining >= 0 ? Colors.green : Colors.red),
               ],
             ),
           ],
@@ -365,17 +359,8 @@ class _BudgetGoalsScreenState extends State<BudgetGoalsScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(
-                  title,
-                  style: const TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                Chip(
-                  label: Text(date),
-                  backgroundColor: Colors.green.withOpacity(0.1),
-                ),
+                Text(title, style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w600)),
+                Chip(label: Text(date), backgroundColor: Colors.green.withOpacity(0.1)),
               ],
             ),
             const SizedBox(height: 12),
@@ -403,20 +388,10 @@ class _BudgetGoalsScreenState extends State<BudgetGoalsScreen> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        Text(label, style: TextStyle(fontSize: 14, color: Colors.grey[600])),
         Text(
-          label,
-          style: TextStyle(
-            fontSize: 14,
-            color: Colors.grey[600],
-          ),
-        ),
-        Text(
-          '\$${amount.toStringAsFixed(2)}',
-          style: TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.bold,
-            color: color,
-          ),
+          '₹${amount.toStringAsFixed(2)}',
+          style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: color),
         ),
       ],
     );

@@ -4,7 +4,7 @@
             "outputFile": "com.example.finapp-mergeDebugResources-24:/values-night-v8/values-night-v8.xml",
             "map": [
                 {
-                    "source": "/home/buvan/Pictures/Finapp(Git)/Finapp/finapp/android/app/src/main/res/values-night/styles.xml",
+                    "source": "/home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/android/app/src/main/res/values-night/styles.xml",
                     "from": {
                         "startLines": "3,14",
                         "startColumns": "4,4",
