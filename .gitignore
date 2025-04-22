@@ -1,0 +1,14 @@
+pubspec.lock
+finapp.iml
+analysis_options.yaml
+.idea/
+build/
+.dart_tool/
+./android/gradle
+./android/.gradle
+./ios
+./linux
+./macos
+./test
+./windows
+./web

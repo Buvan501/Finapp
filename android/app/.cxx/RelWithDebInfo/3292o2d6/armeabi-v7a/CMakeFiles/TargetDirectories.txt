@@ -1,0 +1,2 @@
+/home/buvan/Downloads/finapp/android/app/.cxx/RelWithDebInfo/3292o2d6/armeabi-v7a/CMakeFiles/edit_cache.dir
+/home/buvan/Downloads/finapp/android/app/.cxx/RelWithDebInfo/3292o2d6/armeabi-v7a/CMakeFiles/rebuild_cache.dir

@@ -1,0 +1,2 @@
+/home/buvan/Downloads/finapp/android/app/.cxx/Debug/2f11x1r6/x86_64/CMakeFiles/edit_cache.dir
+/home/buvan/Downloads/finapp/android/app/.cxx/Debug/2f11x1r6/x86_64/CMakeFiles/rebuild_cache.dir

@@ -1,0 +1,2 @@
+/home/buvan/Videos/finapp/android/app/.cxx/Debug/385b412f/armeabi-v7a/CMakeFiles/edit_cache.dir
+/home/buvan/Videos/finapp/android/app/.cxx/Debug/385b412f/armeabi-v7a/CMakeFiles/rebuild_cache.dir
