@@ -1,5 +1,6 @@
 // budget_goals_screen.dart
 import 'package:flutter/material.dart';
+import 'package:finapp/services/api_service.dart';
 
 void main() => runApp(const MyApp());
 
@@ -24,36 +25,45 @@ class BudgetGoalsScreen extends StatefulWidget {
 }
 
 class _BudgetGoalsScreenState extends State<BudgetGoalsScreen> {
-  final Map<String, double> _categoryBudgets = {
-    'Groceries': 5000,
-    'Transport': 1000,
-    'Entertainment': 2000,
-    'Other': 2000,
-  };
+  // Dynamic data from backend
+  List<Map<String, dynamic>> _budgets = [];
+  List<Map<String, dynamic>> _goals = [];
+  bool _isLoading = true;
 
-  final Map<String, double> _categorySpending = {
-    'Groceries': 3500,
-    'Transport': 900,
-    'Entertainment': 600,
-    'Other': 300,
-  };
+  @override
+  void initState() {
+    super.initState();
+    _fetchData();
+  }
 
-  final List<Map<String, dynamic>> _financialGoals = [
-    {'title': 'Vacation Fund', 'target': 20000.0, 'saved': 9000.0, 'date': '2025-12-31'},
-    {'title': 'Emergency Fund', 'target': 50000.0, 'saved': 17500.0, 'date': 'Ongoing'},
-  ];
+  Future<void> _fetchData() async {
+    setState(() => _isLoading = true);
 
-  void _addNewBudget(String category, double amount) {
+    // Fetch budgets (category, budget, spent)
+    final budgets = await ApiService.instance.fetchBudgets();
+    // Fetch goals (title, target, saved, date)
+    final goals = await ApiService.instance.fetchGoals();
+
     setState(() {
-      _categoryBudgets[category] = amount;
-      _categorySpending[category] = 0;
+      _budgets = List<Map<String, dynamic>>.from(budgets);
+      _goals = List<Map<String, dynamic>>.from(goals);
+      _isLoading = false;
     });
   }
 
-  void _addNewGoal(Map<String, dynamic> goal) {
-    setState(() {
-      _financialGoals.add(goal);
-    });
+  Future<void> _addNewBudget(String category, double amount) async {
+    await ApiService.instance.addBudget(category: category, budget: amount);
+    await _fetchData();
+  }
+
+  Future<void> _addNewGoal(Map<String, dynamic> goal) async {
+    await ApiService.instance.addGoal(
+      title: goal['title'],
+      target: goal['target'],
+      saved: goal['saved'],
+      date: goal['date'],
+    );
+    await _fetchData();
   }
 
   void _showAddDialog(BuildContext context) {
@@ -117,12 +127,8 @@ class _BudgetGoalsScreenState extends State<BudgetGoalsScreen> {
                   hintText: 'Enter amount in numbers only',
                 ),
                 validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Amount required';
-                  }
-                  if (double.tryParse(value) == null) {
-                    return 'Numbers only';
-                  }
+                  if (value == null || value.isEmpty) return 'Amount required';
+                  if (double.tryParse(value) == null) return 'Numbers only';
                   return null;
                 },
               ),
@@ -135,9 +141,9 @@ class _BudgetGoalsScreenState extends State<BudgetGoalsScreen> {
             child: const Text('Cancel'),
           ),
           ElevatedButton(
-            onPressed: () {
+            onPressed: () async {
               if (_formKey.currentState!.validate()) {
-                _addNewBudget(
+                await _addNewBudget(
                   _categoryController.text,
                   double.parse(_amountController.text),
                 );
@@ -190,12 +196,8 @@ class _BudgetGoalsScreenState extends State<BudgetGoalsScreen> {
                 keyboardType: TextInputType.number,
                 decoration: const InputDecoration(labelText: 'Target Amount'),
                 validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Amount required';
-                  }
-                  if (double.tryParse(value) == null) {
-                    return 'Numbers only';
-                  }
+                  if (value == null || value.isEmpty) return 'Amount required';
+                  if (double.tryParse(value) == null) return 'Numbers only';
                   return null;
                 },
               ),
@@ -205,12 +207,8 @@ class _BudgetGoalsScreenState extends State<BudgetGoalsScreen> {
                 keyboardType: TextInputType.number,
                 decoration: const InputDecoration(labelText: 'Amount Saved'),
                 validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Amount required';
-                  }
-                  if (double.tryParse(value) == null) {
-                    return 'Numbers only';
-                  }
+                  if (value == null || value.isEmpty) return 'Amount required';
+                  if (double.tryParse(value) == null) return 'Numbers only';
                   return null;
                 },
               ),
@@ -234,9 +232,9 @@ class _BudgetGoalsScreenState extends State<BudgetGoalsScreen> {
             child: const Text('Cancel'),
           ),
           ElevatedButton(
-            onPressed: () {
+            onPressed: () async {
               if (_formKey.currentState!.validate()) {
-                _addNewGoal({
+                await _addNewGoal({
                   'title': _titleController.text,
                   'target': double.parse(_targetController.text),
                   'saved': double.parse(_savedController.text),
@@ -254,6 +252,12 @@ class _BudgetGoalsScreenState extends State<BudgetGoalsScreen> {
 
   @override
   Widget build(BuildContext context) {
+    if (_isLoading) {
+      return const Scaffold(
+        body: Center(child: CircularProgressIndicator()),
+      );
+    }
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Budget & Goals'),
@@ -268,17 +272,19 @@ class _BudgetGoalsScreenState extends State<BudgetGoalsScreen> {
         padding: const EdgeInsets.all(16),
         children: [
           _buildSectionHeader('Monthly Budgets'),
-          ..._categoryBudgets.keys.map((category) => _buildBudgetCard(
-            category,
-            _categoryBudgets[category]!,
-            _categorySpending[category]!,
+          // Render budget cards from backend data
+          ..._budgets.map((b) => _buildBudgetCard(
+            b['category'],
+            (b['budget'] as num).toDouble(),
+            (b['spent'] as num).toDouble(),
           )),
           _buildSectionHeader('Financial Goals'),
-          ..._financialGoals.map((goal) => _buildGoalCard(
-            goal['title'] as String,
-            goal['target'] as double,
-            goal['saved'] as double,
-            goal['date'] as String,
+          // Render goal cards from backend data
+          ..._goals.map((g) => _buildGoalCard(
+            g['title'] as String,
+            (g['target'] as num).toDouble(),
+            (g['saved'] as num).toDouble(),
+            g['date'] as String,
           )),
         ],
       ),
@@ -325,7 +331,7 @@ class _BudgetGoalsScreenState extends State<BudgetGoalsScreen> {
             ),
             const SizedBox(height: 12),
             LinearProgressIndicator(
-              value: progress > 1 ? 1 : progress,
+              value: progress.clamp(0.0, 1.0),
               minHeight: 12,
               backgroundColor: Colors.grey[200],
               valueColor: AlwaysStoppedAnimation<Color>(
@@ -365,7 +371,7 @@ class _BudgetGoalsScreenState extends State<BudgetGoalsScreen> {
             ),
             const SizedBox(height: 12),
             LinearProgressIndicator(
-              value: progress,
+              value: progress.clamp(0.0, 1.0),
               minHeight: 12,
               backgroundColor: Colors.grey[200],
               valueColor: const AlwaysStoppedAnimation<Color>(Colors.green),
