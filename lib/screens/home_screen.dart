@@ -23,7 +23,6 @@ class _HomeScreenState extends State<HomeScreen> {
   Future<void> _loadData() async {
     final fd = Provider.of<FinancialData>(context, listen: false);
 
-    // Fetch and null-safely parse summary
     final summaryMap = await ApiService.instance.fetchMonthlySummary() ?? {};
     final income = (summaryMap['income'] as num?)?.toDouble() ?? 0.0;
     final expenses = (summaryMap['expenses'] as num?)?.toDouble() ?? 0.0;
@@ -33,7 +32,6 @@ class _HomeScreenState extends State<HomeScreen> {
     fd.budget['expenses'] = expenses;
     fd.budget['savings'] = savings;
 
-    // Fetch and null-safely parse transactions, including 'title'
     final txList = await ApiService.instance.fetchTransactions();
     fd.transactions = txList.map((t) {
       final dateStr = t['date'] as String?;
@@ -48,7 +46,7 @@ class _HomeScreenState extends State<HomeScreen> {
         'id': t['id']?.toString() ?? '',
         'type': t['type'] as String? ?? '',
         'category': category,
-        'title': category,  // ★ Ensure title always a string
+        'title': category,
         'amount': (t['amount'] as num?)?.toDouble() ?? 0.0,
         'date': date,
         'notes': t['notes'] as String? ?? '',
@@ -72,6 +70,9 @@ class _HomeScreenState extends State<HomeScreen> {
     final income = fd.budget['income'] as double;
     final expenses = fd.budget['expenses'] as double;
     final savings = fd.budget['savings'] as double;
+
+    final progress = income > 0 ? (expenses / income).clamp(0.0, 1.0) : 0.0;
+    final isOverBudget = progress >= 0.8;
 
     return Scaffold(
       key: _scaffoldKey,
@@ -100,12 +101,13 @@ class _HomeScreenState extends State<HomeScreen> {
           const SizedBox(height: 20),
           _buildSection('BUDGET PROGRESS', [
             LinearProgressIndicator(
-              value: income > 0 ? (expenses / income).clamp(0.0, 1.0) : 0.0,
-              backgroundColor: Colors.grey[200],
+              value: progress,
+              backgroundColor: Colors.grey[300],
               minHeight: 12,
+              color: isOverBudget ? Colors.red : Colors.blue,
             ),
             const SizedBox(height: 10),
-            Text('₹${expenses.toStringAsFixed(2)}/₹${income.toStringAsFixed(2)} spent'),
+            Text('₹${expenses.toStringAsFixed(2)} / ₹${income.toStringAsFixed(2)} spent'),
           ]),
           const SizedBox(height: 20),
           _buildSection('AI INSIGHTS', [
@@ -165,7 +167,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget _buildQuickAction(BuildContext context, String label, IconData icon, String routeName) {
     return Column(
       children: [
-        IconButton( icon: Icon(icon), onPressed: () => Navigator.pushNamed(context, routeName), ),
+        IconButton(icon: Icon(icon), onPressed: () => Navigator.pushNamed(context, routeName)),
         Text(label),
       ],
     );

@@ -1,11 +1,11 @@
 <lint-module
     format="1"
-    dir="/home/buvan/.pub-cache/hosted/pub.dev/flutter_plugin_android_lifecycle-2.0.27/android"
+    dir="/home/buvan/.pub-cache/hosted/pub.dev/flutter_plugin_android_lifecycle-2.0.28/android"
     name=":flutter_plugin_android_lifecycle"
     type="LIBRARY"
     maven="io.flutter.plugins.flutter_plugin_android_lifecycle:flutter_plugin_android_lifecycle:1.0"
     agpVersion="8.7.0"
-    buildFolder="/home/buvan/Downloads/finapp/build/flutter_plugin_android_lifecycle"
+    buildFolder="/home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/build/flutter_plugin_android_lifecycle"
     bootClassPath="/home/buvan/Android/Sdk/platforms/android-35/android.jar:/home/buvan/Android/Sdk/build-tools/34.0.0/core-lambda-stubs.jar"
     javaSourceLevel="11"
     compileTarget="android-35"

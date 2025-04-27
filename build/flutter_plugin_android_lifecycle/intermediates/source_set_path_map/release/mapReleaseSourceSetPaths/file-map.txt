@@ -18,10 +18,10 @@ io.flutter.plugins.flutter_plugin_android_lifecycle-jetified-lifecycle-process-2
 io.flutter.plugins.flutter_plugin_android_lifecycle-jetified-lifecycle-livedata-core-ktx-2.7.0-17 /home/buvan/.gradle/caches/8.10.2/transforms/ebeb29d7113d60e59d5e0acf92f847f3/transformed/jetified-lifecycle-livedata-core-ktx-2.7.0/res
 io.flutter.plugins.flutter_plugin_android_lifecycle-jetified-annotation-experimental-1.4.0-18 /home/buvan/.gradle/caches/8.10.2/transforms/f09a22cdd213028a38958888c7d16e20/transformed/jetified-annotation-experimental-1.4.0/res
 io.flutter.plugins.flutter_plugin_android_lifecycle-core-runtime-2.2.0-19 /home/buvan/.gradle/caches/8.10.2/transforms/ff849810dfe34a0ab790c402787c149e/transformed/core-runtime-2.2.0/res
-io.flutter.plugins.flutter_plugin_android_lifecycle-main-20 /home/buvan/.pub-cache/hosted/pub.dev/flutter_plugin_android_lifecycle-2.0.27/android/src/main/res
-io.flutter.plugins.flutter_plugin_android_lifecycle-release-21 /home/buvan/.pub-cache/hosted/pub.dev/flutter_plugin_android_lifecycle-2.0.27/android/src/release/res
-io.flutter.plugins.flutter_plugin_android_lifecycle-pngs-22 /home/buvan/Downloads/finapp/build/flutter_plugin_android_lifecycle/generated/res/pngs/release
-io.flutter.plugins.flutter_plugin_android_lifecycle-resValues-23 /home/buvan/Downloads/finapp/build/flutter_plugin_android_lifecycle/generated/res/resValues/release
-io.flutter.plugins.flutter_plugin_android_lifecycle-mergeReleaseResources-24 /home/buvan/Downloads/finapp/build/flutter_plugin_android_lifecycle/intermediates/incremental/release/mergeReleaseResources/merged.dir
-io.flutter.plugins.flutter_plugin_android_lifecycle-mergeReleaseResources-25 /home/buvan/Downloads/finapp/build/flutter_plugin_android_lifecycle/intermediates/incremental/release/mergeReleaseResources/stripped.dir
-io.flutter.plugins.flutter_plugin_android_lifecycle-release-26 /home/buvan/Downloads/finapp/build/flutter_plugin_android_lifecycle/intermediates/merged_res/release/mergeReleaseResources
+io.flutter.plugins.flutter_plugin_android_lifecycle-main-20 /home/buvan/.pub-cache/hosted/pub.dev/flutter_plugin_android_lifecycle-2.0.28/android/src/main/res
+io.flutter.plugins.flutter_plugin_android_lifecycle-release-21 /home/buvan/.pub-cache/hosted/pub.dev/flutter_plugin_android_lifecycle-2.0.28/android/src/release/res
+io.flutter.plugins.flutter_plugin_android_lifecycle-pngs-22 /home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/build/flutter_plugin_android_lifecycle/generated/res/pngs/release
+io.flutter.plugins.flutter_plugin_android_lifecycle-resValues-23 /home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/build/flutter_plugin_android_lifecycle/generated/res/resValues/release
+io.flutter.plugins.flutter_plugin_android_lifecycle-mergeReleaseResources-24 /home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/build/flutter_plugin_android_lifecycle/intermediates/incremental/release/mergeReleaseResources/merged.dir
+io.flutter.plugins.flutter_plugin_android_lifecycle-mergeReleaseResources-25 /home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/build/flutter_plugin_android_lifecycle/intermediates/incremental/release/mergeReleaseResources/stripped.dir
+io.flutter.plugins.flutter_plugin_android_lifecycle-release-26 /home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/build/flutter_plugin_android_lifecycle/intermediates/merged_res/release/mergeReleaseResources

@@ -1,0 +1,2 @@
+/home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/android/app/.cxx/RelWithDebInfo/611s1o6g/x86_64/CMakeFiles/edit_cache.dir
+/home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/android/app/.cxx/RelWithDebInfo/611s1o6g/x86_64/CMakeFiles/rebuild_cache.dir

@@ -319,7 +319,7 @@
             "outputFile": "com.example.finapp-release-27:/values-night-v8_values-night-v8.arsc.flat",
             "map": [
                 {
-                    "source": "/home/buvan/Downloads/finapp/android/app/src/main/res/values-night/styles.xml",
+                    "source": "/home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/android/app/src/main/res/values-night/styles.xml",
                     "from": {
                         "startLines": "3,14",
                         "startColumns": "4,4",
@@ -1044,6 +1044,25 @@
                     }
                 },
                 {
+                    "source": "/home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/android/app/src/main/res/values/styles.xml",
+                    "from": {
+                        "startLines": "3,14",
+                        "startColumns": "4,4",
+                        "startOffsets": "173,818",
+                        "endLines": "7,16",
+                        "endColumns": "12,12",
+                        "endOffsets": "476,982"
+                    },
+                    "to": {
+                        "startLines": "155,159",
+                        "startColumns": "4,4",
+                        "startOffsets": "7894,8075",
+                        "endLines": "158,161",
+                        "endColumns": "12,12",
+                        "endOffsets": "8070,8239"
+                    }
+                },
+                {
                     "source": "/home/buvan/.gradle/caches/8.10.2/transforms/a70ddd560199940b45ffc1a1c4db7f79/transformed/jetified-activity-1.9.3/res/values/values.xml",
                     "from": {
                         "startLines": "2,3",
@@ -1109,25 +1128,6 @@
                         "startOffsets": "6888",
                         "endColumns": "42",
                         "endOffsets": "6926"
-                    }
-                },
-                {
-                    "source": "/home/buvan/Downloads/finapp/android/app/src/main/res/values/styles.xml",
-                    "from": {
-                        "startLines": "3,14",
-                        "startColumns": "4,4",
-                        "startOffsets": "173,818",
-                        "endLines": "7,16",
-                        "endColumns": "12,12",
-                        "endOffsets": "476,982"
-                    },
-                    "to": {
-                        "startLines": "155,159",
-                        "startColumns": "4,4",
-                        "startOffsets": "7894,8075",
-                        "endLines": "158,161",
-                        "endColumns": "12,12",
-                        "endOffsets": "8070,8239"
                     }
                 },
                 {

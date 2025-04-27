@@ -1,9 +1,9 @@
 <libraries>
   <library
       name=":@@:flutter_plugin_android_lifecycle::release"
-      jars="/home/buvan/.gradle/caches/8.10.2/transforms/f26a01ceb49759dd9f989127eb5af7dd/transformed/out/jars/classes.jar:/home/buvan/.gradle/caches/8.10.2/transforms/f26a01ceb49759dd9f989127eb5af7dd/transformed/out/jars/libs/R.jar"
+      jars="/home/buvan/.gradle/caches/8.10.2/transforms/57e9a6783aa3684a7493a69469010396/transformed/out/jars/classes.jar:/home/buvan/.gradle/caches/8.10.2/transforms/57e9a6783aa3684a7493a69469010396/transformed/out/jars/libs/R.jar"
       resolved="io.flutter.plugins.flutter_plugin_android_lifecycle:flutter_plugin_android_lifecycle:1.0"
-      folder="/home/buvan/.gradle/caches/8.10.2/transforms/f26a01ceb49759dd9f989127eb5af7dd/transformed/out"
+      folder="/home/buvan/.gradle/caches/8.10.2/transforms/57e9a6783aa3684a7493a69469010396/transformed/out"
       manifest="AndroidManifest.xml"
       resFolder="res"
       assetsFolder="assets"

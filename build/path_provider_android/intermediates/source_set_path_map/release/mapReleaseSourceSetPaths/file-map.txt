@@ -18,10 +18,10 @@ io.flutter.plugins.pathprovider.path_provider_android-jetified-lifecycle-process
 io.flutter.plugins.pathprovider.path_provider_android-jetified-lifecycle-livedata-core-ktx-2.7.0-17 /home/buvan/.gradle/caches/8.10.2/transforms/ebeb29d7113d60e59d5e0acf92f847f3/transformed/jetified-lifecycle-livedata-core-ktx-2.7.0/res
 io.flutter.plugins.pathprovider.path_provider_android-jetified-annotation-experimental-1.4.0-18 /home/buvan/.gradle/caches/8.10.2/transforms/f09a22cdd213028a38958888c7d16e20/transformed/jetified-annotation-experimental-1.4.0/res
 io.flutter.plugins.pathprovider.path_provider_android-core-runtime-2.2.0-19 /home/buvan/.gradle/caches/8.10.2/transforms/ff849810dfe34a0ab790c402787c149e/transformed/core-runtime-2.2.0/res
-io.flutter.plugins.pathprovider.path_provider_android-main-20 /home/buvan/.pub-cache/hosted/pub.dev/path_provider_android-2.2.16/android/src/main/res
-io.flutter.plugins.pathprovider.path_provider_android-release-21 /home/buvan/.pub-cache/hosted/pub.dev/path_provider_android-2.2.16/android/src/release/res
-io.flutter.plugins.pathprovider.path_provider_android-pngs-22 /home/buvan/Downloads/finapp/build/path_provider_android/generated/res/pngs/release
-io.flutter.plugins.pathprovider.path_provider_android-resValues-23 /home/buvan/Downloads/finapp/build/path_provider_android/generated/res/resValues/release
-io.flutter.plugins.pathprovider.path_provider_android-mergeReleaseResources-24 /home/buvan/Downloads/finapp/build/path_provider_android/intermediates/incremental/release/mergeReleaseResources/merged.dir
-io.flutter.plugins.pathprovider.path_provider_android-mergeReleaseResources-25 /home/buvan/Downloads/finapp/build/path_provider_android/intermediates/incremental/release/mergeReleaseResources/stripped.dir
-io.flutter.plugins.pathprovider.path_provider_android-release-26 /home/buvan/Downloads/finapp/build/path_provider_android/intermediates/merged_res/release/mergeReleaseResources
+io.flutter.plugins.pathprovider.path_provider_android-main-20 /home/buvan/.pub-cache/hosted/pub.dev/path_provider_android-2.2.17/android/src/main/res
+io.flutter.plugins.pathprovider.path_provider_android-release-21 /home/buvan/.pub-cache/hosted/pub.dev/path_provider_android-2.2.17/android/src/release/res
+io.flutter.plugins.pathprovider.path_provider_android-pngs-22 /home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/build/path_provider_android/generated/res/pngs/release
+io.flutter.plugins.pathprovider.path_provider_android-resValues-23 /home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/build/path_provider_android/generated/res/resValues/release
+io.flutter.plugins.pathprovider.path_provider_android-mergeReleaseResources-24 /home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/build/path_provider_android/intermediates/incremental/release/mergeReleaseResources/merged.dir
+io.flutter.plugins.pathprovider.path_provider_android-mergeReleaseResources-25 /home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/build/path_provider_android/intermediates/incremental/release/mergeReleaseResources/stripped.dir
+io.flutter.plugins.pathprovider.path_provider_android-release-26 /home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/build/path_provider_android/intermediates/merged_res/release/mergeReleaseResources

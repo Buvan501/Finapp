@@ -2,6 +2,6 @@
 2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
 3    package="io.flutter.plugins.pathprovider" >
 4
-5    <uses-sdk android:minSdkVersion="19" />
+5    <uses-sdk android:minSdkVersion="21" />
 6
 7</manifest>

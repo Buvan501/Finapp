@@ -1,18 +1,18 @@
 <libraries>
   <library
-      name="__local_aars__:/home/buvan/Downloads/finapp/build/app/intermediates/flutter/release/libs.jar:unspecified@jar"
-      jars="/home/buvan/Downloads/finapp/build/app/intermediates/flutter/release/libs.jar"
-      resolved="__local_aars__:/home/buvan/Downloads/finapp/build/app/intermediates/flutter/release/libs.jar:unspecified"/>
+      name="__local_aars__:/home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/build/app/intermediates/flutter/release/libs.jar:unspecified@jar"
+      jars="/home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/build/app/intermediates/flutter/release/libs.jar"
+      resolved="__local_aars__:/home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/build/app/intermediates/flutter/release/libs.jar:unspecified"/>
   <library
       name="org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.22@jar"
       jars="/home/buvan/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-jdk7/1.8.22/4dabb8248310d833bb6a8b516024a91fd3d275c/kotlin-stdlib-jdk7-1.8.22.jar"
       resolved="org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.22"/>
   <library
       name=":@@:flutter_plugin_android_lifecycle::release"
-      jars="/home/buvan/.gradle/caches/8.10.2/transforms/f26a01ceb49759dd9f989127eb5af7dd/transformed/out/jars/classes.jar:/home/buvan/.gradle/caches/8.10.2/transforms/f26a01ceb49759dd9f989127eb5af7dd/transformed/out/jars/libs/R.jar"
+      jars="/home/buvan/.gradle/caches/8.10.2/transforms/57e9a6783aa3684a7493a69469010396/transformed/out/jars/classes.jar:/home/buvan/.gradle/caches/8.10.2/transforms/57e9a6783aa3684a7493a69469010396/transformed/out/jars/libs/R.jar"
       resolved="io.flutter.plugins.flutter_plugin_android_lifecycle:flutter_plugin_android_lifecycle:1.0"
-      partialResultsDir="/home/buvan/Downloads/finapp/build/flutter_plugin_android_lifecycle/intermediates/lint_vital_partial_results/release/lintVitalAnalyzeRelease/out"
-      folder="/home/buvan/.gradle/caches/8.10.2/transforms/f26a01ceb49759dd9f989127eb5af7dd/transformed/out"
+      partialResultsDir="/home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/build/flutter_plugin_android_lifecycle/intermediates/lint_vital_partial_results/release/lintVitalAnalyzeRelease/out"
+      folder="/home/buvan/.gradle/caches/8.10.2/transforms/57e9a6783aa3684a7493a69469010396/transformed/out"
       manifest="AndroidManifest.xml"
       resFolder="res"
       assetsFolder="assets"
@@ -23,10 +23,10 @@
       proguardRules="proguard.txt"/>
   <library
       name=":@@:image_picker_android::release"
-      jars="/home/buvan/.gradle/caches/8.10.2/transforms/5ca272be9cbb5c04ae194c719257341e/transformed/out/jars/classes.jar:/home/buvan/.gradle/caches/8.10.2/transforms/5ca272be9cbb5c04ae194c719257341e/transformed/out/jars/libs/R.jar"
+      jars="/home/buvan/.gradle/caches/8.10.2/transforms/aef22a120477d4e66c6a4368292561a5/transformed/out/jars/classes.jar:/home/buvan/.gradle/caches/8.10.2/transforms/aef22a120477d4e66c6a4368292561a5/transformed/out/jars/libs/R.jar"
       resolved="io.flutter.plugins.imagepicker:image_picker_android:1.0-SNAPSHOT"
-      partialResultsDir="/home/buvan/Downloads/finapp/build/image_picker_android/intermediates/lint_vital_partial_results/release/lintVitalAnalyzeRelease/out"
-      folder="/home/buvan/.gradle/caches/8.10.2/transforms/5ca272be9cbb5c04ae194c719257341e/transformed/out"
+      partialResultsDir="/home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/build/image_picker_android/intermediates/lint_vital_partial_results/release/lintVitalAnalyzeRelease/out"
+      folder="/home/buvan/.gradle/caches/8.10.2/transforms/aef22a120477d4e66c6a4368292561a5/transformed/out"
       manifest="AndroidManifest.xml"
       resFolder="res"
       assetsFolder="assets"
@@ -37,10 +37,10 @@
       proguardRules="proguard.txt"/>
   <library
       name=":@@:path_provider_android::release"
-      jars="/home/buvan/.gradle/caches/8.10.2/transforms/3a2c06ef5ca01e57571121e8bae8ceb2/transformed/out/jars/classes.jar:/home/buvan/.gradle/caches/8.10.2/transforms/3a2c06ef5ca01e57571121e8bae8ceb2/transformed/out/jars/libs/R.jar"
+      jars="/home/buvan/.gradle/caches/8.10.2/transforms/679ff40a088900a9786a61b33cceb2c1/transformed/out/jars/classes.jar:/home/buvan/.gradle/caches/8.10.2/transforms/679ff40a088900a9786a61b33cceb2c1/transformed/out/jars/libs/R.jar"
       resolved="io.flutter.plugins.pathprovider:path_provider_android:1.0-SNAPSHOT"
-      partialResultsDir="/home/buvan/Downloads/finapp/build/path_provider_android/intermediates/lint_vital_partial_results/release/lintVitalAnalyzeRelease/out"
-      folder="/home/buvan/.gradle/caches/8.10.2/transforms/3a2c06ef5ca01e57571121e8bae8ceb2/transformed/out"
+      partialResultsDir="/home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/build/path_provider_android/intermediates/lint_vital_partial_results/release/lintVitalAnalyzeRelease/out"
+      folder="/home/buvan/.gradle/caches/8.10.2/transforms/679ff40a088900a9786a61b33cceb2c1/transformed/out"
       manifest="AndroidManifest.xml"
       resFolder="res"
       assetsFolder="assets"

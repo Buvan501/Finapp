@@ -1,12 +1,12 @@
 <variant
     name="release"
     package="io.flutter.plugins.pathprovider"
-    minSdkVersion="19"
-    targetSdkVersion="19"
-    mergedManifest="/home/buvan/Downloads/finapp/build/path_provider_android/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml"
-    manifestMergeReport="/home/buvan/Downloads/finapp/build/path_provider_android/outputs/logs/manifest-merger-release-report.txt"
-    proguardFiles="/home/buvan/Downloads/finapp/build/path_provider_android/intermediates/default_proguard_files/global/proguard-android.txt-8.7.0"
-    partialResultsDir="/home/buvan/Downloads/finapp/build/path_provider_android/intermediates/lint_partial_results/release/lintAnalyzeRelease/out">
+    minSdkVersion="21"
+    targetSdkVersion="21"
+    mergedManifest="/home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/build/path_provider_android/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml"
+    manifestMergeReport="/home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/build/path_provider_android/outputs/logs/manifest-merger-release-report.txt"
+    proguardFiles="/home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/build/path_provider_android/intermediates/default_proguard_files/global/proguard-android.txt-8.7.0"
+    partialResultsDir="/home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/build/path_provider_android/intermediates/lint_partial_results/release/lintAnalyzeRelease/out">
   <buildFeatures
       namespacing="REQUIRED"/>
   <sourceProviders>
@@ -21,11 +21,11 @@
   <testFixturesSourceProviders>
   </testFixturesSourceProviders>
   <artifact
-      classOutputs="/home/buvan/Downloads/finapp/build/path_provider_android/intermediates/javac/release/compileReleaseJavaWithJavac/classes:/home/buvan/Downloads/finapp/build/path_provider_android/intermediates/compile_r_class_jar/release/generateReleaseRFile/R.jar"
+      classOutputs="/home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/build/path_provider_android/intermediates/javac/release/compileReleaseJavaWithJavac/classes:/home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/build/path_provider_android/intermediates/compile_r_class_jar/release/generateReleaseRFile/R.jar"
       type="MAIN"
       applicationId="io.flutter.plugins.pathprovider"
-      generatedSourceFolders="/home/buvan/Downloads/finapp/build/path_provider_android/generated/ap_generated_sources/release/out"
-      generatedResourceFolders="/home/buvan/Downloads/finapp/build/path_provider_android/generated/res/resValues/release"
-      desugaredMethodsFiles="/home/buvan/.gradle/caches/8.10.2/transforms/845d9227b0aa7afd95c9677206a478c7/transformed/D8BackportedDesugaredMethods.txt">
+      generatedSourceFolders="/home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/build/path_provider_android/generated/ap_generated_sources/release/out"
+      generatedResourceFolders="/home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/build/path_provider_android/generated/res/resValues/release"
+      desugaredMethodsFiles="/home/buvan/.gradle/caches/8.10.2/transforms/58b2fa97deb6620e81e8f2146e68c814/transformed/D8BackportedDesugaredMethods.txt">
   </artifact>
 </variant>

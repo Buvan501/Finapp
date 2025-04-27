@@ -1,11 +1,11 @@
 <lint-module
     format="1"
-    dir="/home/buvan/.pub-cache/hosted/pub.dev/path_provider_android-2.2.16/android"
+    dir="/home/buvan/.pub-cache/hosted/pub.dev/path_provider_android-2.2.17/android"
     name=":path_provider_android"
     type="LIBRARY"
     maven="io.flutter.plugins.pathprovider:path_provider_android:1.0-SNAPSHOT"
     agpVersion="8.7.0"
-    buildFolder="/home/buvan/Downloads/finapp/build/path_provider_android"
+    buildFolder="/home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/build/path_provider_android"
     bootClassPath="/home/buvan/Android/Sdk/platforms/android-35/android.jar:/home/buvan/Android/Sdk/build-tools/34.0.0/core-lambda-stubs.jar"
     javaSourceLevel="11"
     compileTarget="android-35"

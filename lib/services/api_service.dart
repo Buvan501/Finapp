@@ -15,7 +15,7 @@ class ApiService {
     _jwtToken = token;
   }
 
-  /// Common headers for all requests
+  /// Common headers
   Map<String, String> _headers() {
     final headers = {'Content-Type': 'application/json'};
     if (_jwtToken != null && _jwtToken!.isNotEmpty) {
@@ -28,7 +28,6 @@ class ApiService {
   // Authentication & Profile
   // -----------------------
 
-  /// Sign up a new user
   Future<bool> signUp({
     required String name,
     required String email,
@@ -42,7 +41,6 @@ class ApiService {
       'phone': phone,
       'password': password,
     });
-
     final res = await http.post(uri, headers: _headers(), body: body);
     if (res.statusCode == 201) {
       final data = jsonDecode(res.body);
@@ -52,7 +50,6 @@ class ApiService {
     return false;
   }
 
-  /// Log in an existing user
   Future<bool> login({
     required String email,
     required String password,
@@ -62,7 +59,6 @@ class ApiService {
       'email': email,
       'password': password,
     });
-
     final res = await http.post(uri, headers: _headers(), body: body);
     if (res.statusCode == 200) {
       final data = jsonDecode(res.body);
@@ -72,7 +68,6 @@ class ApiService {
     return false;
   }
 
-  /// Fetch user profile data
   Future<Map<String, dynamic>?> fetchProfile() async {
     final uri = Uri.parse('$_baseUrl/profile');
     final res = await http.get(uri, headers: _headers());
@@ -82,7 +77,6 @@ class ApiService {
     return null;
   }
 
-  /// Update user profile
   Future<bool> updateProfile({
     required String name,
     required String email,
@@ -102,9 +96,8 @@ class ApiService {
   // Transactions
   // -----------------------
 
-  /// Add a new income or expense transaction
   Future<bool> addTransaction({
-    required String type, // 'income' or 'expense'
+    required String type,
     required String category,
     required double amount,
     DateTime? date,
@@ -118,12 +111,10 @@ class ApiService {
       'date': date?.toIso8601String(),
       'notes': notes ?? '',
     });
-
     final res = await http.post(uri, headers: _headers(), body: body);
     return res.statusCode == 201;
   }
 
-  /// Fetch all transactions for the user
   Future<List<dynamic>> fetchTransactions() async {
     final uri = Uri.parse('$_baseUrl/transactions');
     final res = await http.get(uri, headers: _headers());
@@ -133,7 +124,6 @@ class ApiService {
     return [];
   }
 
-  /// Fetch summary (income, expenses, savings) for current month
   Future<Map<String, dynamic>?> fetchMonthlySummary() async {
     final uri = Uri.parse('$_baseUrl/summary');
     final res = await http.get(uri, headers: _headers());
@@ -147,7 +137,6 @@ class ApiService {
   // Budgets
   // -----------------------
 
-  /// Fetch budget categories with limits and spent for current month
   Future<List<dynamic>> fetchBudgets() async {
     final uri = Uri.parse('$_baseUrl/budgets');
     final res = await http.get(uri, headers: _headers());
@@ -157,7 +146,6 @@ class ApiService {
     throw Exception('Failed to load budgets (${res.statusCode})');
   }
 
-  /// Add or update a budget category
   Future<void> addBudget({
     required String category,
     required double budget,
@@ -171,10 +159,9 @@ class ApiService {
   }
 
   // -----------------------
-  // Financial Goals
+  // Goals
   // -----------------------
 
-  /// Fetch all financial goals
   Future<List<dynamic>> fetchGoals() async {
     final uri = Uri.parse('$_baseUrl/goals');
     final res = await http.get(uri, headers: _headers());
@@ -184,12 +171,13 @@ class ApiService {
     throw Exception('Failed to load goals (${res.statusCode})');
   }
 
-  /// Add a new financial goal
   Future<void> addGoal({
     required String title,
     required double target,
     required double saved,
     required String date,
+    int? priority,
+    String? status,
   }) async {
     final uri = Uri.parse('$_baseUrl/goals');
     final body = jsonEncode({
@@ -197,10 +185,35 @@ class ApiService {
       'target': target,
       'saved': saved,
       'date': date,
+      if (priority != null) 'priority': priority,
+      if (status != null) 'status': status,
     });
     final res = await http.post(uri, headers: _headers(), body: body);
     if (res.statusCode != 201) {
       throw Exception('Failed to save goal (${res.statusCode})');
+    }
+  }
+
+  Future<void> updateGoal({
+    required String title,
+    required double target,
+    required double saved,
+    required String date,
+    int? priority,
+    String? status,
+  }) async {
+    final uri = Uri.parse('$_baseUrl/goals');
+    final body = jsonEncode({
+      'title': title,
+      'target': target,
+      'saved': saved,
+      'date': date,
+      if (priority != null) 'priority': priority,
+      if (status != null) 'status': status,
+    });
+    final res = await http.put(uri, headers: _headers(), body: body);
+    if (res.statusCode != 200) {
+      throw Exception('Failed to update goal (${res.statusCode})');
     }
   }
 }

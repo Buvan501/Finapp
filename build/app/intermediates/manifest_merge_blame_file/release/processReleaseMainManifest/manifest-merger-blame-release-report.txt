@@ -9,8 +9,8 @@
 9        android:targetSdkVersion="35" />
 10
 11    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-11-->/home/buvan/Downloads/finapp/android/app/src/main/AndroidManifest.xml:2:5-79
-11-->/home/buvan/Downloads/finapp/android/app/src/main/AndroidManifest.xml:2:22-77
+11-->/home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/android/app/src/main/AndroidManifest.xml:2:5-79
+11-->/home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/android/app/src/main/AndroidManifest.xml:2:22-77
 12    <!--
 13         Required to query activities that can process text, see:
 14         https://developer.android.com/training/package-visibility and
@@ -19,16 +19,16 @@
 17         In particular, this is used by the Flutter engine in io.flutter.plugin.text.ProcessTextPlugin.
 18    -->
 19    <queries>
-19-->/home/buvan/Downloads/finapp/android/app/src/main/AndroidManifest.xml:40:5-45:15
+19-->/home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/android/app/src/main/AndroidManifest.xml:40:5-45:15
 20        <intent>
-20-->/home/buvan/Downloads/finapp/android/app/src/main/AndroidManifest.xml:41:9-44:18
+20-->/home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/android/app/src/main/AndroidManifest.xml:41:9-44:18
 21            <action android:name="android.intent.action.PROCESS_TEXT" />
-21-->/home/buvan/Downloads/finapp/android/app/src/main/AndroidManifest.xml:42:13-72
-21-->/home/buvan/Downloads/finapp/android/app/src/main/AndroidManifest.xml:42:21-70
+21-->/home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/android/app/src/main/AndroidManifest.xml:42:13-72
+21-->/home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/android/app/src/main/AndroidManifest.xml:42:21-70
 22
 23            <data android:mimeType="text/plain" />
-23-->/home/buvan/Downloads/finapp/android/app/src/main/AndroidManifest.xml:43:13-50
-23-->/home/buvan/Downloads/finapp/android/app/src/main/AndroidManifest.xml:43:19-48
+23-->/home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/android/app/src/main/AndroidManifest.xml:43:13-50
+23-->/home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/android/app/src/main/AndroidManifest.xml:43:19-48
 24        </intent>
 25    </queries>
 26
@@ -45,32 +45,32 @@
 32
 33    <application
 34        android:name="android.app.Application"
-34-->/home/buvan/Downloads/finapp/android/app/src/main/AndroidManifest.xml:5:9-42
+34-->/home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/android/app/src/main/AndroidManifest.xml:5:9-42
 35        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
 35-->[androidx.core:core:1.13.1] /home/buvan/.gradle/caches/8.10.2/transforms/8cf478dec41eed746328fa8046755ba2/transformed/core-1.13.1/AndroidManifest.xml:28:18-86
 36        android:extractNativeLibs="true"
 37        android:icon="@mipmap/ic_launcher"
-37-->/home/buvan/Downloads/finapp/android/app/src/main/AndroidManifest.xml:6:9-43
+37-->/home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/android/app/src/main/AndroidManifest.xml:6:9-43
 38        android:label="finapp" >
-38-->/home/buvan/Downloads/finapp/android/app/src/main/AndroidManifest.xml:4:9-31
+38-->/home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/android/app/src/main/AndroidManifest.xml:4:9-31
 39        <activity
-39-->/home/buvan/Downloads/finapp/android/app/src/main/AndroidManifest.xml:7:9-28:20
+39-->/home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/android/app/src/main/AndroidManifest.xml:7:9-28:20
 40            android:name="com.example.finapp.MainActivity"
-40-->/home/buvan/Downloads/finapp/android/app/src/main/AndroidManifest.xml:8:13-41
+40-->/home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/android/app/src/main/AndroidManifest.xml:8:13-41
 41            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
-41-->/home/buvan/Downloads/finapp/android/app/src/main/AndroidManifest.xml:13:13-163
+41-->/home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/android/app/src/main/AndroidManifest.xml:13:13-163
 42            android:exported="true"
-42-->/home/buvan/Downloads/finapp/android/app/src/main/AndroidManifest.xml:9:13-36
+42-->/home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/android/app/src/main/AndroidManifest.xml:9:13-36
 43            android:hardwareAccelerated="true"
-43-->/home/buvan/Downloads/finapp/android/app/src/main/AndroidManifest.xml:14:13-47
+43-->/home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/android/app/src/main/AndroidManifest.xml:14:13-47
 44            android:launchMode="singleTop"
-44-->/home/buvan/Downloads/finapp/android/app/src/main/AndroidManifest.xml:10:13-43
+44-->/home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/android/app/src/main/AndroidManifest.xml:10:13-43
 45            android:taskAffinity=""
-45-->/home/buvan/Downloads/finapp/android/app/src/main/AndroidManifest.xml:11:13-36
+45-->/home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/android/app/src/main/AndroidManifest.xml:11:13-36
 46            android:theme="@style/LaunchTheme"
-46-->/home/buvan/Downloads/finapp/android/app/src/main/AndroidManifest.xml:12:13-47
+46-->/home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/android/app/src/main/AndroidManifest.xml:12:13-47
 47            android:windowSoftInputMode="adjustResize" >
-47-->/home/buvan/Downloads/finapp/android/app/src/main/AndroidManifest.xml:15:13-55
+47-->/home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/android/app/src/main/AndroidManifest.xml:15:13-55
 48
 49            <!--
 50                 Specifies an Android theme to apply to this Activity as soon as
@@ -79,21 +79,21 @@
 53                 to determine the Window background behind the Flutter UI.
 54            -->
 55            <meta-data
-55-->/home/buvan/Downloads/finapp/android/app/src/main/AndroidManifest.xml:20:13-23:17
+55-->/home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/android/app/src/main/AndroidManifest.xml:20:13-23:17
 56                android:name="io.flutter.embedding.android.NormalTheme"
-56-->/home/buvan/Downloads/finapp/android/app/src/main/AndroidManifest.xml:21:15-70
+56-->/home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/android/app/src/main/AndroidManifest.xml:21:15-70
 57                android:resource="@style/NormalTheme" />
-57-->/home/buvan/Downloads/finapp/android/app/src/main/AndroidManifest.xml:22:15-52
+57-->/home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/android/app/src/main/AndroidManifest.xml:22:15-52
 58
 59            <intent-filter>
-59-->/home/buvan/Downloads/finapp/android/app/src/main/AndroidManifest.xml:24:13-27:29
+59-->/home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/android/app/src/main/AndroidManifest.xml:24:13-27:29
 60                <action android:name="android.intent.action.MAIN" />
-60-->/home/buvan/Downloads/finapp/android/app/src/main/AndroidManifest.xml:25:17-68
-60-->/home/buvan/Downloads/finapp/android/app/src/main/AndroidManifest.xml:25:25-66
+60-->/home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/android/app/src/main/AndroidManifest.xml:25:17-68
+60-->/home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/android/app/src/main/AndroidManifest.xml:25:25-66
 61
 62                <category android:name="android.intent.category.LAUNCHER" />
-62-->/home/buvan/Downloads/finapp/android/app/src/main/AndroidManifest.xml:26:17-76
-62-->/home/buvan/Downloads/finapp/android/app/src/main/AndroidManifest.xml:26:27-74
+62-->/home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/android/app/src/main/AndroidManifest.xml:26:17-76
+62-->/home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/android/app/src/main/AndroidManifest.xml:26:27-74
 63            </intent-filter>
 64        </activity>
 65        <!--
@@ -101,50 +101,50 @@
 67             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
 68        -->
 69        <meta-data
-69-->/home/buvan/Downloads/finapp/android/app/src/main/AndroidManifest.xml:31:9-33:33
+69-->/home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/android/app/src/main/AndroidManifest.xml:31:9-33:33
 70            android:name="flutterEmbedding"
-70-->/home/buvan/Downloads/finapp/android/app/src/main/AndroidManifest.xml:32:13-44
+70-->/home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/android/app/src/main/AndroidManifest.xml:32:13-44
 71            android:value="2" />
-71-->/home/buvan/Downloads/finapp/android/app/src/main/AndroidManifest.xml:33:13-30
+71-->/home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/android/app/src/main/AndroidManifest.xml:33:13-30
 72
 73        <provider
-73-->[:image_picker_android] /home/buvan/Downloads/finapp/build/image_picker_android/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:9:9-17:20
+73-->[:image_picker_android] /home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/build/image_picker_android/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:9:9-17:20
 74            android:name="io.flutter.plugins.imagepicker.ImagePickerFileProvider"
-74-->[:image_picker_android] /home/buvan/Downloads/finapp/build/image_picker_android/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:10:13-82
+74-->[:image_picker_android] /home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/build/image_picker_android/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:10:13-82
 75            android:authorities="com.example.finapp.flutter.image_provider"
-75-->[:image_picker_android] /home/buvan/Downloads/finapp/build/image_picker_android/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:11:13-74
+75-->[:image_picker_android] /home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/build/image_picker_android/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:11:13-74
 76            android:exported="false"
-76-->[:image_picker_android] /home/buvan/Downloads/finapp/build/image_picker_android/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:12:13-37
+76-->[:image_picker_android] /home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/build/image_picker_android/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:12:13-37
 77            android:grantUriPermissions="true" >
-77-->[:image_picker_android] /home/buvan/Downloads/finapp/build/image_picker_android/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:13:13-47
+77-->[:image_picker_android] /home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/build/image_picker_android/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:13:13-47
 78            <meta-data
-78-->[:image_picker_android] /home/buvan/Downloads/finapp/build/image_picker_android/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:14:13-16:75
+78-->[:image_picker_android] /home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/build/image_picker_android/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:14:13-16:75
 79                android:name="android.support.FILE_PROVIDER_PATHS"
-79-->[:image_picker_android] /home/buvan/Downloads/finapp/build/image_picker_android/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:15:17-67
+79-->[:image_picker_android] /home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/build/image_picker_android/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:15:17-67
 80                android:resource="@xml/flutter_image_picker_file_paths" />
-80-->[:image_picker_android] /home/buvan/Downloads/finapp/build/image_picker_android/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:16:17-72
+80-->[:image_picker_android] /home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/build/image_picker_android/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:16:17-72
 81        </provider> <!-- Trigger Google Play services to install the backported photo picker module. -->
 82        <service
-82-->[:image_picker_android] /home/buvan/Downloads/finapp/build/image_picker_android/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:19:9-31:19
+82-->[:image_picker_android] /home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/build/image_picker_android/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:19:9-31:19
 83            android:name="com.google.android.gms.metadata.ModuleDependencies"
-83-->[:image_picker_android] /home/buvan/Downloads/finapp/build/image_picker_android/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:20:13-78
+83-->[:image_picker_android] /home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/build/image_picker_android/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:20:13-78
 84            android:enabled="false"
-84-->[:image_picker_android] /home/buvan/Downloads/finapp/build/image_picker_android/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:21:13-36
+84-->[:image_picker_android] /home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/build/image_picker_android/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:21:13-36
 85            android:exported="false" >
-85-->[:image_picker_android] /home/buvan/Downloads/finapp/build/image_picker_android/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:22:13-37
+85-->[:image_picker_android] /home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/build/image_picker_android/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:22:13-37
 86            <intent-filter>
-86-->[:image_picker_android] /home/buvan/Downloads/finapp/build/image_picker_android/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:24:13-26:29
+86-->[:image_picker_android] /home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/build/image_picker_android/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:24:13-26:29
 87                <action android:name="com.google.android.gms.metadata.MODULE_DEPENDENCIES" />
-87-->[:image_picker_android] /home/buvan/Downloads/finapp/build/image_picker_android/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:25:17-94
-87-->[:image_picker_android] /home/buvan/Downloads/finapp/build/image_picker_android/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:25:25-91
+87-->[:image_picker_android] /home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/build/image_picker_android/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:25:17-94
+87-->[:image_picker_android] /home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/build/image_picker_android/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:25:25-91
 88            </intent-filter>
 89
 90            <meta-data
-90-->[:image_picker_android] /home/buvan/Downloads/finapp/build/image_picker_android/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:28:13-30:36
+90-->[:image_picker_android] /home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/build/image_picker_android/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:28:13-30:36
 91                android:name="photopicker_activity:0:required"
-91-->[:image_picker_android] /home/buvan/Downloads/finapp/build/image_picker_android/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:29:17-63
+91-->[:image_picker_android] /home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/build/image_picker_android/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:29:17-63
 92                android:value="" />
-92-->[:image_picker_android] /home/buvan/Downloads/finapp/build/image_picker_android/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:30:17-33
+92-->[:image_picker_android] /home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/build/image_picker_android/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:30:17-33
 93        </service>
 94
 95        <uses-library

@@ -1,6 +1,6 @@
-Marking string:androidx_startup:2131427328 reachable: referenced from /home/buvan/Downloads/finapp/build/app/intermediates/dex/release/minifyReleaseWithR8/classes.dex
-Marking id:tag_window_insets_animation_callback:2131165266 reachable: referenced from /home/buvan/Downloads/finapp/build/app/intermediates/dex/release/minifyReleaseWithR8/classes.dex
-Marking id:tag_on_apply_window_listener:2131165258 reachable: referenced from /home/buvan/Downloads/finapp/build/app/intermediates/dex/release/minifyReleaseWithR8/classes.dex
+Marking string:androidx_startup:2131427328 reachable: referenced from /home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/build/app/intermediates/dex/release/minifyReleaseWithR8/classes.dex
+Marking id:tag_window_insets_animation_callback:2131165266 reachable: referenced from /home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/build/app/intermediates/dex/release/minifyReleaseWithR8/classes.dex
+Marking id:tag_on_apply_window_listener:2131165258 reachable: referenced from /home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/build/app/intermediates/dex/release/minifyReleaseWithR8/classes.dex
 android.content.res.Resources#getIdentifier present: true
 Web content present: false
 Referenced Strings:
