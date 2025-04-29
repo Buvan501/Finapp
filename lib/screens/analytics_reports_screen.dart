@@ -1,96 +1,107 @@
+// analytics_reports_screen.dart
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:intl/intl.dart';
+import 'package:fl_chart/fl_chart.dart';
 import '../app_state.dart';
 
-class AnalyticsReportsScreen extends StatelessWidget {
+class AnalyticsReportsScreen extends StatefulWidget {
+  @override
+  _AnalyticsReportsScreenState createState() => _AnalyticsReportsScreenState();
+}
+
+class _AnalyticsReportsScreenState extends State<AnalyticsReportsScreen> {
+  int _touchedPieIndex = -1;
+  int _touchedBarGroup = -1;
+
   @override
   Widget build(BuildContext context) {
-    final financialData = Provider.of<FinancialData>(context);
+    final fd = Provider.of<FinancialData>(context);
+    final txs = fd.transactions;
 
     return Scaffold(
+      backgroundColor: Colors.grey[50],
       appBar: AppBar(
-        title: const Text('Analytics & Reports'),
+        backgroundColor: Colors.white,
+        elevation: 1,
+        title: Text(
+          'Analytics & Reports',
+          style: TextStyle(
+            color: Colors.grey[900],
+            fontWeight: FontWeight.bold,
+            fontSize: 22,
+            letterSpacing: 1.2,
+          ),
+        ),
+        iconTheme: IconThemeData(color: Colors.grey[800]),
         actions: [
           IconButton(
-            icon: const Icon(Icons.download),
+            icon: Icon(Icons.download, color: Colors.grey[800]),
             onPressed: () => _generateReport(context),
           ),
         ],
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Column(
-          children: [
-            _buildTimePeriodSelector(context),
-            const SizedBox(height: 20),
-            _buildChartContainer(
-              'Income vs Expenses',
-              200,
-              financialData.getChartData() as List<Map<String, dynamic>>,
-              financialData.selectedPeriod,
-            ),
-            const SizedBox(height: 20),
-            _buildChartContainer(
-              'Expense Breakdown',
-              150,
-              financialData.getPieChartData(),
-              financialData.selectedPeriod,
-              isPieChart: true,
-            ),
-            const SizedBox(height: 20),
-            _buildLegend(financialData.getPieChartData()),
-          ],
-        ),
-      ),
-    );
-  }
-
-
-  Widget _buildTimePeriodSelector(BuildContext context) {
-    final financialData = Provider.of<FinancialData>(context);
-
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: [
-        _buildTimeButton('Week', 'week', financialData),
-        _buildTimeButton('Month', 'month', financialData),
-        _buildTimeButton('Year', 'year', financialData),
-      ],
-    );
-  }
-
-  Widget _buildTimeButton(String label, String period, FinancialData financialData) {
-    final isSelected = financialData.selectedPeriod == period;
-
-    return ElevatedButton(
-      onPressed: () => financialData.changePeriod(period),
-      style: ElevatedButton.styleFrom(
-        backgroundColor: isSelected ? Colors.blue : Colors.grey[200],
-        foregroundColor: isSelected ? Colors.white : Colors.black,
-      ),
-      child: Text(label),
-    );
-  }
-
-  Widget _buildChartContainer(String title, double height, List<Map<String, dynamic>> data,
-      String period, {bool isPieChart = false}) {
-    return Card(
-      child: Padding(
+      body: SingleChildScrollView(
         padding: const EdgeInsets.all(16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(title, style: const TextStyle(fontWeight: FontWeight.bold)),
-            const SizedBox(height: 12),
-            Container(
-              height: height,
-              decoration: BoxDecoration(
-                border: Border.all(color: Colors.grey),
-                borderRadius: BorderRadius.circular(8),
+            _buildTimeSelector(fd),
+            const SizedBox(height: 24),
+            // Bar Chart Section
+            Text(
+              'Income vs Expenses',
+              style: TextStyle(
+                color: Colors.grey[900],
+                fontSize: 18,
+                fontWeight: FontWeight.w600,
               ),
-              child: isPieChart
-                  ? _buildPieChart(data)
-                  : _buildBarChart(data, period),
+            ),
+            const SizedBox(height: 12),
+            Card(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(24),
+              ),
+              elevation: 4,
+              color: Colors.white,
+              child: Padding(
+                padding: const EdgeInsets.all(16),
+                child: AspectRatio(
+                  aspectRatio: 1.7,
+                  child: _buildBarChart(txs, fd.selectedPeriod),
+                ),
+              ),
+            ),
+            const SizedBox(height: 32),
+            // Pie Chart Section
+            Text(
+              'Expense Breakdown',
+              style: TextStyle(
+                color: Colors.grey[900],
+                fontSize: 18,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+            const SizedBox(height: 12),
+            Card(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(24),
+              ),
+              elevation: 4,
+              color: Colors.white,
+              child: Padding(
+                padding: const EdgeInsets.all(16),
+                child: Column(
+                  children: [
+                    AspectRatio(
+                      aspectRatio: 1.3,
+                      child: _buildPieChart(txs),
+                    ),
+                    const SizedBox(height: 16),
+                    _buildLegend(_generatePieData(txs)),
+                  ],
+                ),
+              ),
             ),
           ],
         ),
@@ -98,164 +109,178 @@ class AnalyticsReportsScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildBarChart(List<Map<String, dynamic>> data, String period) {
-    return SingleChildScrollView(
-      scrollDirection: Axis.horizontal,
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.end,
-        children: data.map((item) {
-          double income = item['income'] ?? 0.0;
-          double expenses = item['expenses'] ?? 0.0;
-          String label = _getLabel(item, period);
-
-          return Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                Text(label, style: const TextStyle(fontSize: 12)),
-                const SizedBox(height: 4),
-                Stack(
-                  alignment: Alignment.bottomCenter,
-                  children: [
-                    Container(
-                      width: 50,
-                      height: 150,
-                      decoration: BoxDecoration(
-                        border: Border.all(color: Colors.grey.shade300),
-                        borderRadius: BorderRadius.circular(6),
-                      ),
-                    ),
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Container(
-                          height: income / 100, // scale down
-                          width: 20,
-                          margin: const EdgeInsets.only(right: 2),
-                          decoration: BoxDecoration(
-                            color: Colors.green,
-                            borderRadius: BorderRadius.circular(4),
-                          ),
-                        ),
-                        Container(
-                          height: expenses / 100,
-                          width: 20,
-                          margin: const EdgeInsets.only(left: 2),
-                          decoration: BoxDecoration(
-                            color: Colors.red,
-                            borderRadius: BorderRadius.circular(4),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 4),
-                const Text("↑", style: TextStyle(fontSize: 10)),
-              ],
+  Widget _buildTimeSelector(FinancialData fd) {
+    return Center(
+      child: Container(
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(32),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.05),
+              blurRadius: 8,
+              offset: Offset(0, 4),
             ),
+          ],
+        ),
+        padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: ['month', 'year'].map((period) {
+            final label = period == 'month' ? 'Month' : 'Year';
+            final sel = fd.selectedPeriod == period;
+            return Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 4),
+              child: ChoiceChip(
+                label: Text(
+                  label,
+                  style: TextStyle(
+                    color: sel ? Colors.white : Colors.grey[800],
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+                selected: sel,
+                selectedColor: Colors.teal[400],
+                backgroundColor: Colors.transparent,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20),
+                  side: BorderSide(color: sel ? Colors.teal[400]! : Colors.grey[300]!),
+                ),
+                onSelected: (_) => fd.changePeriod(period),
+              ),
+            );
+          }).toList(),
+        ),
+      ),
+    );
+  }
+
+  BarChart _buildBarChart(List<Map<String, dynamic>> txs, String period) {
+    final grouped = _generateBarData(txs, period);
+    final maxVal = grouped
+        .map((e) => (e['income'] as double).compareTo(e['expenses'] as double) > 0 ? e['income'] : e['expenses'])
+        .fold(0.0, (a, b) => a > b ? a : b);
+
+    return BarChart(
+      BarChartData(
+        maxY: maxVal * 1.2,
+        barTouchData: BarTouchData(
+          touchCallback: (evt, resp) {
+            setState(() {
+              if (resp == null || resp.spot == null) _touchedBarGroup = -1;
+              else _touchedBarGroup = resp.spot!.touchedBarGroupIndex;
+            });
+          },
+        ),
+        titlesData: FlTitlesData(
+          bottomTitles: AxisTitles(
+            sideTitles: SideTitles(
+              showTitles: true,
+              reservedSize: 32,
+              getTitlesWidget: (v, meta) {
+                final label = grouped[v.toInt()][period == 'year' ? 'month' : 'day'];
+                return SideTitleWidget(
+                  axisSide: meta.axisSide,
+                  child: Text(label, style: TextStyle(fontSize: 12, color: Colors.grey[700])),
+                  space: 4,
+                );
+              },
+            ),
+          ),
+          leftTitles: AxisTitles(
+            sideTitles: SideTitles(showTitles: true, reservedSize: 40, getTitlesWidget: (v, m) => SideTitleWidget(
+              axisSide: m.axisSide,
+              child: Text(v.toInt().toString(), style: TextStyle(color: Colors.grey[700], fontSize: 12)),
+            )),
+          ),
+          topTitles: const AxisTitles(sideTitles: SideTitles(showTitles: false)),
+          rightTitles: const AxisTitles(sideTitles: SideTitles(showTitles: false)),
+        ),
+        gridData: FlGridData(show: false),
+        borderData: FlBorderData(show: false),
+        barGroups: grouped.asMap().entries.map((e) {
+          final idx = e.key;
+          final map = e.value;
+          final y1 = map['income'] as double;
+          final y2 = map['expenses'] as double;
+          final touched = idx == _touchedBarGroup;
+          return BarChartGroupData(
+            x: idx,
+            barsSpace: 6,
+            barRods: [
+              BarChartRodData(toY: touched ? y1 * 1.1 : y1, color: Colors.teal, width: 8, borderRadius: BorderRadius.circular(4)),
+              BarChartRodData(toY: touched ? y2 * 1.1 : y2, color: Colors.deepOrange, width: 8, borderRadius: BorderRadius.circular(4)),
+            ],
           );
         }).toList(),
       ),
     );
   }
 
-
-  String _getLabel(Map<String, dynamic> item, String period) {
-    switch(period) {
-      case 'week':
-        return item['day']; // Mon, Tue, etc.
-      case 'month':
-        return item['day']; // '01', '02', ...
-      case 'year':
-        return item['month'].substring(0, 3); // 'Jan', 'Feb', ...
-      default:
-        return '';
+  List<Map<String, dynamic>> _generateBarData(List<Map<String, dynamic>> txs, String period) {
+    final m = <String, Map<String, double>>{};
+    for (var tx in txs) {
+      final date = tx['date'] as DateTime;
+      final key = period == 'year' ? DateFormat('MMM').format(date) : DateFormat('dd').format(date);
+      m.putIfAbsent(key, () => {'income': 0.0, 'expenses': 0.0});
+      final amt = tx['amount'] as double;
+      if (tx['type'] == 'income') m[key]!['income'] = m[key]!['income']! + amt;
+      else m[key]!['expenses'] = m[key]!['expenses']! + amt;
     }
+    return m.entries.map((e) => {
+      if (period == 'year') 'month': e.key else 'day': e.key,
+      'income': e.value['income'],
+      'expenses': e.value['expenses'],
+    }).toList();
   }
 
+  Widget _buildPieChart(List<Map<String, dynamic>> txs) {
+    final data = _generatePieData(txs);
+    final sections = data.asMap().entries.map((e) {
+      final idx = e.key;
+      final item = e.value;
+      final touched = idx == _touchedPieIndex;
+      return PieChartSectionData(
+        color: item['color'] as Color,
+        value: item['percentage'] as double,
+        radius: touched ? 70 : 60,
+        title: '${item['percentage'].toStringAsFixed(1)}%',
+        titleStyle: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: touched ? 18 : 14),
+      );
+    }).toList();
 
-
-  Widget _buildPieChart(List<Map<String, dynamic>> data) {
-    return SizedBox(
-      height: 150,
-      width: 150,
-      child: CustomPaint(
-        painter: PieChartPainter(data),
-        child: Center(
-          child: Text(
-            "${data.length} Categories",
-            style: const TextStyle(fontWeight: FontWeight.bold),
-          ),
+    return PieChart(
+      PieChartData(
+        sections: sections,
+        centerSpaceRadius: 30,
+        sectionsSpace: 4,
+        pieTouchData: PieTouchData(
+          touchCallback: (evt, resp) {
+            setState(() {
+              if (resp == null || resp.touchedSection == null) _touchedPieIndex = -1;
+              else _touchedPieIndex = resp.touchedSection!.touchedSectionIndex;
+            });
+          },
         ),
       ),
     );
   }
 
-
-  Widget _buildLegend(List<Map<String, dynamic>> categories) {
-    return Wrap(
-      spacing: 20,
-      runSpacing: 10,
-      children: categories.map((category) =>
-          _buildLegendItem(category['category'], category['color'])
-      ).toList(),
-    );
+  List<Map<String, dynamic>> _generatePieData(List<Map<String, dynamic>> txs) {
+    final totals = <String, double>{}; double sum=0;
+    for(var tx in txs) if(tx['type']=='expense'){ final c=tx['category'] as String; final a=tx['amount'] as double; totals[c]=(totals[c]??0)+a; sum+=a; }
+    final colors=[Colors.red, Colors.blue, Colors.green, Colors.orange, Colors.purple]; var i=0;
+    return totals.entries.map((e)=>{'category':e.key,'percentage':sum>0?e.value/sum*100:0,'color':colors[i++%colors.length]}).toList();
   }
 
-  Widget _buildLegendItem(String label, Color color) {
-    return Row(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Container(
-          width: 12,
-          height: 12,
-          color: color,
-        ),
-        const SizedBox(width: 8),
-        Text(label),
-      ],
+  Widget _buildLegend(List<Map<String, dynamic>> data) {
+    return Wrap(
+      spacing: 12, runSpacing: 8,
+      children: data.map((e)=>Row(mainAxisSize:MainAxisSize.min,children:[Container(width:12,height:12,color:e['color']as Color),const SizedBox(width:4),Text(e['category']as String,style:TextStyle(color:Colors.grey[800]))])).toList(),
     );
   }
 
   void _generateReport(BuildContext context) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(
-        content: Text('Report generated successfully'),
-      ),
-    );
+    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Report generated successfully')));
   }
-}
-
-class PieChartPainter extends CustomPainter {
-  final List<Map<String, dynamic>> data;
-  PieChartPainter(this.data);
-
-  @override
-  void paint(Canvas canvas, Size size) {
-    double total = data.fold(0, (sum, item) => sum + item['percentage']);
-    double startRadian = -90 * 3.14159265 / 180; // start at top
-
-    final radius = size.width / 2;
-    final center = Offset(size.width / 2, size.height / 2);
-    final paint = Paint()..style = PaintingStyle.fill;
-
-    for (var item in data) {
-      final sweepRadian = (item['percentage'] / total) * 2 * 3.14159265;
-      paint.color = item['color'];
-      canvas.drawArc(
-        Rect.fromCircle(center: center, radius: radius),
-        startRadian,
-        sweepRadian,
-        true,
-        paint,
-      );
-      startRadian += sweepRadian;
-    }
-  }
-
-  @override
-  bool shouldRepaint(covariant CustomPainter oldDelegate) => true;
 }
