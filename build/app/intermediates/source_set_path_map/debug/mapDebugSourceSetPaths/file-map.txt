@@ -28,3 +28,4 @@ com.example.finapp-debug-26 /home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/build
 com.example.finapp-debug-27 /home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/build/flutter_plugin_android_lifecycle/intermediates/packaged_res/debug/packageDebugResources
 com.example.finapp-debug-28 /home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/build/image_picker_android/intermediates/packaged_res/debug/packageDebugResources
 com.example.finapp-debug-29 /home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/build/path_provider_android/intermediates/packaged_res/debug/packageDebugResources
+com.example.finapp-debug-30 /home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/build/printing/intermediates/packaged_res/debug/packageDebugResources

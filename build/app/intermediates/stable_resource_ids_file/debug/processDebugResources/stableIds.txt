@@ -6,6 +6,7 @@ com.example.finapp:styleable/Fragment = 0x7f0d0006
 com.example.finapp:styleable/FontFamilyFont = 0x7f0d0005
 com.example.finapp:styleable/GradientColor = 0x7f0d0008
 com.example.finapp:styleable/FontFamily = 0x7f0d0004
+com.example.finapp:xml/flutter_printing_file_paths = 0x7f0e0001
 com.example.finapp:styleable/Capability = 0x7f0d0002
 com.example.finapp:styleable/ActivityRule = 0x7f0d0001
 com.example.finapp:styleable/ActivityFilter = 0x7f0d0000

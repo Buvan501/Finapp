@@ -37,6 +37,10 @@ dependencies:
   path: ^1.8.3
   http: ^0.13.3
   fl_chart: ^0.67.0
+  syncfusion_flutter_charts: ^20.2.50
+  pdf: ^3.10.1
+  printing: ^5.10.0
+
 
 
 

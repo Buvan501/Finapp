@@ -4,6 +4,8 @@ INJECTED from /home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/android/app/src/mai
 INJECTED from /home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/android/app/src/debug/AndroidManifest.xml
 MERGED from [:image_picker_android] /home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/build/image_picker_android/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:8:5-32:19
 MERGED from [:image_picker_android] /home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/build/image_picker_android/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:8:5-32:19
+MERGED from [:printing] /home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/build/printing/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:7:5-17:19
+MERGED from [:printing] /home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/build/printing/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:7:5-17:19
 MERGED from [androidx.window:window:1.2.0] /home/buvan/.gradle/caches/8.10.2/transforms/5093ab42d2307deb2d7ac0b7f5718c38/transformed/jetified-window-1.2.0/AndroidManifest.xml:22:5-29:19
 MERGED from [androidx.window:window:1.2.0] /home/buvan/.gradle/caches/8.10.2/transforms/5093ab42d2307deb2d7ac0b7f5718c38/transformed/jetified-window-1.2.0/AndroidManifest.xml:22:5-29:19
 MERGED from [androidx.core:core:1.13.1] /home/buvan/.gradle/caches/8.10.2/transforms/8cf478dec41eed746328fa8046755ba2/transformed/core-1.13.1/AndroidManifest.xml:28:5-89
@@ -31,6 +33,7 @@ INJECTED from /home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/android/app/src/deb
 MERGED from [:image_picker_android] /home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/build/image_picker_android/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:2:1-34:12
 MERGED from [:flutter_plugin_android_lifecycle] /home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/build/flutter_plugin_android_lifecycle/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:2:1-7:12
 MERGED from [:path_provider_android] /home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/build/path_provider_android/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:2:1-7:12
+MERGED from [:printing] /home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/build/printing/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:2:1-19:12
 MERGED from [androidx.fragment:fragment:1.7.1] /home/buvan/.gradle/caches/8.10.2/transforms/55520e4df2220e27f13f0bbb7467d11a/transformed/fragment-1.7.1/AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.activity:activity:1.9.3] /home/buvan/.gradle/caches/8.10.2/transforms/a70ddd560199940b45ffc1a1c4db7f79/transformed/jetified-activity-1.9.3/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.window:window:1.2.0] /home/buvan/.gradle/caches/8.10.2/transforms/5093ab42d2307deb2d7ac0b7f5718c38/transformed/jetified-window-1.2.0/AndroidManifest.xml:17:1-31:12
@@ -96,6 +99,8 @@ MERGED from [:flutter_plugin_android_lifecycle] /home/buvan/Pictures/Finapp(Git)
 MERGED from [:flutter_plugin_android_lifecycle] /home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/build/flutter_plugin_android_lifecycle/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:5:5-44
 MERGED from [:path_provider_android] /home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/build/path_provider_android/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:5:5-44
 MERGED from [:path_provider_android] /home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/build/path_provider_android/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:5:5-44
+MERGED from [:printing] /home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/build/printing/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:5:5-44
+MERGED from [:printing] /home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/build/printing/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:5:5-44
 MERGED from [androidx.fragment:fragment:1.7.1] /home/buvan/.gradle/caches/8.10.2/transforms/55520e4df2220e27f13f0bbb7467d11a/transformed/fragment-1.7.1/AndroidManifest.xml:5:5-44
 MERGED from [androidx.fragment:fragment:1.7.1] /home/buvan/.gradle/caches/8.10.2/transforms/55520e4df2220e27f13f0bbb7467d11a/transformed/fragment-1.7.1/AndroidManifest.xml:5:5-44
 MERGED from [androidx.activity:activity:1.9.3] /home/buvan/.gradle/caches/8.10.2/transforms/a70ddd560199940b45ffc1a1c4db7f79/transformed/jetified-activity-1.9.3/AndroidManifest.xml:20:5-44
@@ -192,6 +197,16 @@ ADDED from [:image_picker_android] /home/buvan/Pictures/Finapp(Git)/Finapp/Finap
 		ADDED from [:image_picker_android] /home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/build/image_picker_android/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:30:17-33
 	android:name
 		ADDED from [:image_picker_android] /home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/build/image_picker_android/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:29:17-63
+provider#net.nfet.flutter.printing.PrintFileProvider
+ADDED from [:printing] /home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/build/printing/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:8:9-16:20
+	android:grantUriPermissions
+		ADDED from [:printing] /home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/build/printing/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:12:13-47
+	android:authorities
+		ADDED from [:printing] /home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/build/printing/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:10:13-68
+	android:exported
+		ADDED from [:printing] /home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/build/printing/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:11:13-37
+	android:name
+		ADDED from [:printing] /home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/build/printing/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:9:13-71
 uses-library#androidx.window.extensions
 ADDED from [androidx.window:window:1.2.0] /home/buvan/.gradle/caches/8.10.2/transforms/5093ab42d2307deb2d7ac0b7f5718c38/transformed/jetified-window-1.2.0/AndroidManifest.xml:23:9-25:40
 	android:required

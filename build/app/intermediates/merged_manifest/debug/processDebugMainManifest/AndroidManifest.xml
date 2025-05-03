@@ -98,6 +98,16 @@
                 android:value="" />
         </service>
 
+        <provider
+            android:name="net.nfet.flutter.printing.PrintFileProvider"
+            android:authorities="com.example.finapp.flutter.printing"
+            android:exported="false"
+            android:grantUriPermissions="true" >
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/flutter_printing_file_paths" />
+        </provider>
+
         <uses-library
             android:name="androidx.window.extensions"
             android:required="false" />
