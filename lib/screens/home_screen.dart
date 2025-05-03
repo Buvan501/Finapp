@@ -1,18 +1,23 @@
-// home_screen.dart
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:intl/intl.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+
 import '../app_state.dart';
 import '../services/api_service.dart';
+import '../main.dart' show flutterLocalNotificationsPlugin;
 
 class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
+
   @override
-  _HomeScreenState createState() => _HomeScreenState();
+  State<HomeScreen> createState() => _HomeScreenState();
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+  final _scaffoldKey = GlobalKey<ScaffoldState>();
   bool _loading = true;
+  bool _notifiedBudgetExceeded = false;
 
   @override
   void initState() {
@@ -23,15 +28,18 @@ class _HomeScreenState extends State<HomeScreen> {
   Future<void> _loadData() async {
     final fd = Provider.of<FinancialData>(context, listen: false);
 
+    // Fetch monthly summary
     final summaryMap = await ApiService.instance.fetchMonthlySummary() ?? {};
     final income = (summaryMap['income'] as num?)?.toDouble() ?? 0.0;
     final expenses = (summaryMap['expenses'] as num?)?.toDouble() ?? 0.0;
-    final savings = (summaryMap['savings'] as num?)?.toDouble() ?? (income - expenses);
+    final savings =
+        (summaryMap['savings'] as num?)?.toDouble() ?? (income - expenses);
 
     fd.budget['income'] = income;
     fd.budget['expenses'] = expenses;
     fd.budget['savings'] = savings;
 
+    // Fetch transactions
     final txList = await ApiService.instance.fetchTransactions();
     fd.transactions = txList.map((t) {
       final dateStr = t['date'] as String?;
@@ -55,12 +63,36 @@ class _HomeScreenState extends State<HomeScreen> {
 
     fd.notifyListeners();
     setState(() => _loading = false);
+
+    // Trigger notification at 80% spending
+    if (!_notifiedBudgetExceeded && income > 0 && expenses / income >= 0.8) {
+      _notifiedBudgetExceeded = true;
+      _showBudgetExceededNotification(expenses / income);
+    }
+  }
+
+  Future<void> _showBudgetExceededNotification(double percent) async {
+    final percStr = (percent * 100).toStringAsFixed(0);
+    const androidDetails = AndroidNotificationDetails(
+      'budget_channel',
+      'Budget Alerts',
+      channelDescription: 'Alerts when spending nears or exceeds your budget',
+      importance: Importance.max,
+      priority: Priority.high,
+    );
+    const details = NotificationDetails(android: androidDetails);
+
+    await flutterLocalNotificationsPlugin.show(
+      0,
+      'Budget Alert',
+      'You have used $percStr% of your monthly income.',
+      details,
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     final fd = Provider.of<FinancialData>(context);
-
     if (_loading) {
       return const Scaffold(
         body: Center(child: CircularProgressIndicator()),
@@ -70,8 +102,8 @@ class _HomeScreenState extends State<HomeScreen> {
     final income = fd.budget['income'] as double;
     final expenses = fd.budget['expenses'] as double;
     final savings = fd.budget['savings'] as double;
-
-    final progress = income > 0 ? (expenses / income).clamp(0.0, 1.0) : 0.0;
+    final progress =
+    income > 0 ? (expenses / income).clamp(0.0, 1.0) : 0.0;
     final isOverBudget = progress >= 0.8;
 
     return Scaffold(
@@ -89,7 +121,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ],
       ),
-      drawer: _buildNavigationDrawer(context),
+      drawer: _buildNavigationDrawer(),
       body: ListView(
         padding: const EdgeInsets.all(20),
         children: [
@@ -121,9 +153,9 @@ class _HomeScreenState extends State<HomeScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                _buildQuickAction(context, 'Add', Icons.add, '/expense'),
-                _buildQuickAction(context, 'Goals', Icons.flag, '/budget'),
-                _buildQuickAction(context, 'Reports', Icons.description, '/analytics'),
+                _buildQuickAction('Add', Icons.add, '/expense'),
+                _buildQuickAction('Goals', Icons.flag, '/budget'),
+                _buildQuickAction('Reports', Icons.description, '/analytics'),
               ],
             ),
           ]),
@@ -131,7 +163,8 @@ class _HomeScreenState extends State<HomeScreen> {
           _buildSection('RECENT TRANSACTIONS', [
             if (fd.transactions.isEmpty)
               const Text('No transactions yet', style: TextStyle(color: Colors.grey))
-            else ...fd.transactions.take(5).map(_buildTransaction)
+            else
+              ...fd.transactions.take(5).map(_buildTransaction)
           ]),
         ],
       ),
@@ -142,11 +175,13 @@ class _HomeScreenState extends State<HomeScreen> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(title, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
+        Text(title,
+            style: const TextStyle(
+                fontWeight: FontWeight.bold, fontSize: 16)),
         const SizedBox(height: 10),
         Card(
           child: Padding(
-            padding: const EdgeInsets.all(15.0),
+            padding: const EdgeInsets.all(15),
             child: Column(children: children),
           ),
         ),
@@ -154,66 +189,75 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  Widget _buildSummaryRow(String label, String value) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8.0),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [Text(label), Text(value)],
-      ),
-    );
-  }
+  Widget _buildSummaryRow(String label, String value) => Padding(
+    padding: const EdgeInsets.symmetric(vertical: 8.0),
+    child: Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [Text(label), Text(value)],
+    ),
+  );
 
-  Widget _buildQuickAction(BuildContext context, String label, IconData icon, String routeName) {
-    return Column(
-      children: [
-        IconButton(icon: Icon(icon), onPressed: () => Navigator.pushNamed(context, routeName)),
-        Text(label),
-      ],
-    );
-  }
+  Widget _buildQuickAction(String label, IconData icon, String route) =>
+      Column(
+        children: [
+          IconButton(
+              icon: Icon(icon),
+              onPressed: () => Navigator.pushNamed(context, route)),
+          Text(label),
+        ],
+      );
 
-  Widget _buildTransaction(Map<String, dynamic> transaction) {
-    return ListTile(
-      title: Text(transaction['title'] as String),
-      subtitle: Text(
-        DateFormat('MMM dd, yyyy - HH:mm').format(transaction['date'] as DateTime),
-      ),
-      trailing: Text(
-        '${transaction['type'] == 'income' ? '+' : '-'}₹${(transaction['amount'] as double).toStringAsFixed(2)}',
-        style: TextStyle(
-          color: transaction['type'] == 'income' ? Colors.green : Colors.red,
-          fontWeight: FontWeight.bold,
-        ),
-      ),
-      leading: Icon(_getCategoryIcon(transaction['category'] as String)),
-    );
-  }
+  Widget _buildTransaction(Map<String, dynamic> tx) => ListTile(
+    title: Text(tx['title'] as String),
+    subtitle: Text(
+      DateFormat('MMM dd, yyyy - HH:mm').format(tx['date'] as DateTime),
+    ),
+    trailing: Text(
+      '${tx['type'] == 'income' ? '+' : '-'}₹${(tx['amount'] as double).toStringAsFixed(2)}',
+      style: TextStyle(
+          color:
+          tx['type'] == 'income' ? Colors.green : Colors.red,
+          fontWeight: FontWeight.bold),
+    ),
+    leading: Icon(_getCategoryIcon(tx['category'] as String)),
+  );
 
   IconData _getCategoryIcon(String category) {
     switch (category) {
-      case 'Groceries': return Icons.shopping_cart;
-      case 'Transport': return Icons.directions_car;
-      case 'Salary': return Icons.work;
-      default: return Icons.money_off;
+      case 'Groceries':
+        return Icons.shopping_cart;
+      case 'Transport':
+        return Icons.directions_car;
+      case 'Salary':
+        return Icons.work;
+      default:
+        return Icons.money_off;
     }
   }
 
-  Widget _buildNavigationDrawer(BuildContext context) {
-    return Drawer(
-      child: ListView(
-        padding: EdgeInsets.zero,
-        children: [
-          const DrawerHeader(
-            decoration: BoxDecoration(color: Colors.blue),
-            child: Text('Financial Buddy', style: TextStyle(color: Colors.white, fontSize: 24)),
-          ),
-          ListTile(leading: const Icon(Icons.home), title: const Text('Dashboard'), onTap: () => Navigator.pushReplacementNamed(context, '/home')),
-          ListTile(leading: const Icon(Icons.add_chart), title: const Text('Add Transaction'), onTap: () => Navigator.pushNamed(context, '/expense')),
-          ListTile(leading: const Icon(Icons.account_balance_wallet), title: const Text('Budgets & Goals'), onTap: () => Navigator.pushNamed(context, '/budget')),
-          ListTile(leading: const Icon(Icons.analytics), title: const Text('Analytics'), onTap: () => Navigator.pushNamed(context, '/analytics')),
-        ],
+  Widget _buildNavigationDrawer() => Drawer(
+    child: ListView(padding: EdgeInsets.zero, children: [
+      const DrawerHeader(
+        decoration: BoxDecoration(color: Colors.blue),
+        child: Text('Financial Buddy',
+            style: TextStyle(color: Colors.white, fontSize: 24)),
       ),
-    );
-  }
+      ListTile(
+          leading: const Icon(Icons.home),
+          title: const Text('Dashboard'),
+          onTap: () => Navigator.pushReplacementNamed(context, '/home')),
+      ListTile(
+          leading: const Icon(Icons.add_chart),
+          title: const Text('Add Transaction'),
+          onTap: () => Navigator.pushNamed(context, '/expense')),
+      ListTile(
+          leading: const Icon(Icons.account_balance_wallet),
+          title: const Text('Budgets & Goals'),
+          onTap: () => Navigator.pushNamed(context, '/budget')),
+      ListTile(
+          leading: const Icon(Icons.analytics),
+          title: const Text('Analytics'),
+          onTap: () => Navigator.pushNamed(context, '/analytics')),
+    ]),
+  );
 }

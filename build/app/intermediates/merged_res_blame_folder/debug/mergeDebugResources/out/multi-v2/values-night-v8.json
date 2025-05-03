@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.finapp-mergeDebugResources-24:/values-night-v8/values-night-v8.xml",
+            "outputFile": "com.example.finapp-mergeDebugResources-25:/values-night-v8/values-night-v8.xml",
             "map": [
                 {
                     "source": "/home/buvan/Pictures/Finapp(Git)/Finapp/Finapp/android/app/src/main/res/values-night/styles.xml",

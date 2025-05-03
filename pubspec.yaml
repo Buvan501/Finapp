@@ -40,7 +40,8 @@ dependencies:
   syncfusion_flutter_charts: ^20.2.50
   pdf: ^3.10.1
   printing: ^5.10.0
-
+  flutter_local_notifications: ^17.0.0
+  permission_handler: ^11.0.0
 
 
 
