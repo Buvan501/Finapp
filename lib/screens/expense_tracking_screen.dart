@@ -1,5 +1,7 @@
+// lib/screens/expense_tracking_screen.dart
+
 import 'package:flutter/material.dart';
-import '../app_state.dart';
+import 'package:intl/intl.dart';             // ← import intl
 import '../services/api_service.dart';
 
 class ExpenseTrackingScreen extends StatefulWidget {
@@ -9,8 +11,9 @@ class ExpenseTrackingScreen extends StatefulWidget {
 
 class _ExpenseTrackingScreenState extends State<ExpenseTrackingScreen> {
   final _formKey = GlobalKey<FormState>();
-  final TextEditingController _amountController = TextEditingController();
-  final TextEditingController _otherCategoryController = TextEditingController();
+  final _amountController = TextEditingController();
+  final _otherCategoryController = TextEditingController();
+
   String _transactionType = 'Expense';
   String _category = 'Groceries';
   DateTime _selectedDate = DateTime.now();
@@ -61,7 +64,7 @@ class _ExpenseTrackingScreenState extends State<ExpenseTrackingScreen> {
           child: ChoiceChip(
             label: const Text('Expense'),
             selected: _transactionType == 'Expense',
-            onSelected: (val) {
+            onSelected: (_) {
               setState(() {
                 _transactionType = 'Expense';
                 _category = 'Groceries';
@@ -71,16 +74,16 @@ class _ExpenseTrackingScreenState extends State<ExpenseTrackingScreen> {
             },
             selectedColor: Colors.blue,
             labelStyle: TextStyle(
-              color: _transactionType == 'Expense' ? Colors.white : Colors
-                  .black,
+              color: _transactionType == 'Expense' ? Colors.white : Colors.black,
             ),
           ),
         ),
+        const SizedBox(width: 8),
         Expanded(
           child: ChoiceChip(
             label: const Text('Income'),
             selected: _transactionType == 'Income',
-            onSelected: (val) {
+            onSelected: (_) {
               setState(() {
                 _transactionType = 'Income';
                 _category = 'Salary';
@@ -101,42 +104,36 @@ class _ExpenseTrackingScreenState extends State<ExpenseTrackingScreen> {
   Widget _buildAmountField() {
     return TextFormField(
       controller: _amountController,
-      decoration: InputDecoration(
+      decoration: const InputDecoration(
         labelText: 'AMOUNT',
         prefixText: '₹ ',
         border: OutlineInputBorder(),
         suffixIcon: Icon(Icons.currency_rupee),
       ),
       keyboardType: TextInputType.number,
-      validator: (value) => value!.isEmpty ? 'Enter amount' : null,
+      validator: (v) => (v == null || v.isEmpty) ? 'Enter amount' : null,
     );
   }
 
   Widget _buildCategoryDropdown() {
-    List<String> categories = _transactionType == 'Income'
+    final categories = _transactionType == 'Income'
         ? ['Salary', 'Freelance', 'Investments', 'Other']
         : ['Groceries', 'Transport', 'Entertainment', 'Other'];
 
-    return DropdownButtonFormField(
+    return DropdownButtonFormField<String>(
       value: _category,
-      decoration: InputDecoration(
+      decoration: const InputDecoration(
         labelText: 'CATEGORY',
         border: OutlineInputBorder(),
       ),
       items: categories
-          .map((cat) =>
-          DropdownMenuItem(
-            value: cat,
-            child: Text(cat),
-          ))
+          .map((c) => DropdownMenuItem(value: c, child: Text(c)))
           .toList(),
-      onChanged: (value) {
+      onChanged: (val) {
         setState(() {
-          _category = value.toString();
-          _showOtherCategoryField = (value == 'Other');
-          if (!_showOtherCategoryField) {
-            _otherCategoryController.clear();
-          }
+          _category = val!;
+          _showOtherCategoryField = val == 'Other';
+          if (!_showOtherCategoryField) _otherCategoryController.clear();
         });
       },
     );
@@ -145,36 +142,38 @@ class _ExpenseTrackingScreenState extends State<ExpenseTrackingScreen> {
   Widget _buildOtherCategoryField() {
     return TextFormField(
       controller: _otherCategoryController,
-      decoration: InputDecoration(
+      decoration: const InputDecoration(
         labelText: 'Specify Category',
         border: OutlineInputBorder(),
       ),
-      validator: (value) =>
-      _showOtherCategoryField && value!.isEmpty ? 'Enter category name' : null,
+      validator: (v) {
+        if (_showOtherCategoryField && (v == null || v.isEmpty)) {
+          return 'Enter category name';
+        }
+        return null;
+      },
     );
   }
 
   Widget _buildDatePicker() {
     return ListTile(
-      title: Text('DATE'),
-      subtitle: Text('${_selectedDate.toLocal()}'.split(' ')[0]),
-      trailing: Icon(Icons.calendar_today),
+      title: const Text('DATE'),
+      subtitle: Text(DateFormat('yyyy-MM-dd').format(_selectedDate)), // ← use DateFormat
+      trailing: const Icon(Icons.calendar_today),
       onTap: () async {
-        final pickedDate = await showDatePicker(
+        final picked = await showDatePicker(
           context: context,
           initialDate: _selectedDate,
           firstDate: DateTime(2000),
           lastDate: DateTime(2100),
         );
-        if (pickedDate != null) {
-          setState(() => _selectedDate = pickedDate);
-        }
+        if (picked != null) setState(() => _selectedDate = picked);
       },
     );
   }
 
   Widget _buildNotesField() {
-    return TextFormField(
+    return const TextField(
       decoration: InputDecoration(
         labelText: 'NOTES',
         border: OutlineInputBorder(),
@@ -187,35 +186,34 @@ class _ExpenseTrackingScreenState extends State<ExpenseTrackingScreen> {
   Widget _buildSaveButton() {
     return ElevatedButton(
       onPressed: _saveTransaction,
-      child: const Text('SAVE TRANSACTION'),
       style: ElevatedButton.styleFrom(
         padding: const EdgeInsets.symmetric(vertical: 16),
-        backgroundColor: Colors.blue,
       ),
+      child: const Text('SAVE TRANSACTION'),
     );
   }
 
-  void _saveTransaction() async {
-    if (_formKey.currentState!.validate()) {
-      final category = _showOtherCategoryField
-          ? _otherCategoryController.text
-          : _category;
+  Future<void> _saveTransaction() async {
+    if (!_formKey.currentState!.validate()) return;
 
-      final success = await ApiService.instance.addTransaction(
-        type: _transactionType.toLowerCase(),
-        category: category,
-        amount: double.parse(_amountController.text),
-        date: _selectedDate,
-        notes: '', // You can add a TextController for notes if needed
+    final category = _showOtherCategoryField
+        ? _otherCategoryController.text
+        : _category;
+
+    final success = await ApiService.instance.addTransaction(
+      type:     _transactionType.toLowerCase(),
+      category: category,
+      amount:   double.parse(_amountController.text),
+      date:     _selectedDate,
+      notes:    '',
+    );
+
+    if (success) {
+      Navigator.pop(context, true); // ← return `true` so HomeScreen knows to refresh
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Failed to save transaction')),
       );
-
-      if (success) {
-        Navigator.pop(context);
-      } else {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Failed to save transaction')),
-        );
-      }
     }
   }
 }
