@@ -136,6 +136,11 @@ class _HomeScreenState extends State<HomeScreen> {
             Text('₹${expenses.toStringAsFixed(2)} / ₹${income.toStringAsFixed(2)} spent'),
           ]),
           const SizedBox(height: 20),
+
+          // ✅ Inserted Insight Widget
+          _section('AI INSIGHTS', [InsightWidget()]),
+
+          const SizedBox(height: 20),
           _section('QUICK ACTIONS', [
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -242,4 +247,47 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     ]),
   );
+}
+
+// ✅ AI Insight Widget
+class InsightWidget extends StatefulWidget {
+  @override
+  _InsightWidgetState createState() => _InsightWidgetState();
+}
+
+class _InsightWidgetState extends State<InsightWidget> {
+  String _insight = 'Fetching insight...';
+
+  @override
+  void initState() {
+    super.initState();
+    _loadInsight();
+  }
+
+  Future<void> _loadInsight() async {
+    try {
+      final insight = await ApiService.instance.fetchAIInsight();
+      setState(() {
+        _insight = insight;
+      });
+    } catch (e) {
+      setState(() {
+        _insight = 'Failed to fetch insights';
+      });
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      margin: const EdgeInsets.only(top: 10),
+      child: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Text(
+          _insight,
+          style: const TextStyle(fontSize: 16),
+        ),
+      ),
+    );
+  }
 }

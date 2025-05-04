@@ -58,6 +58,8 @@ class FinancialData with ChangeNotifier {
     notifyListeners();
   }
 
+
+
   // —————————————————————————————————————————————————————————
   // Period selection & navigation
   // —————————————————————————————————————————————————————————

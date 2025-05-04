@@ -171,6 +171,18 @@ class ApiService {
     throw Exception('Failed to load goals (${res.statusCode})');
   }
 
+  Future<String> fetchAIInsight() async {
+    final res = await http.get(
+      Uri.parse('$_baseUrl/insights'),
+      headers: _headers(),
+    );
+
+    if (res.statusCode == 200) {
+      return jsonDecode(res.body)['insight'] as String;
+    }
+    return 'No insight available';
+  }
+
   Future<void> addGoal({
     required String title,
     required double target,
