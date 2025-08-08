@@ -62,6 +62,11 @@ The backend analyzes **previous vs current month** financial data:
 
 _Example Output_:
 > “Your food spending increased this month. Try reducing takeout orders.”
+**AI Analysis Factors**:
+- Monthly income/expense changes
+- Category-wise spending shifts  
+- Historical spending patterns
+- Comparative analysis between periods
 
 ---
 
